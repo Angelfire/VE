@@ -21,7 +21,10 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const { page, uniqueTags } = Astro.props
 ---
 
-<BlogLayout>
+<BlogLayout
+  title="Velocidad de Escape"
+  description="Personal blog by Andrés Bedoya. I just want to share some personal things and others related to the headaches that programming produces."
+>
   <div class="container mx-auto px-4 md:px-0 mb-16">
     <div class="flex flex-wrap pt-4">
       <Aside tags={uniqueTags} />
