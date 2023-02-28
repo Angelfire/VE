@@ -1,0 +1,63 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro"
+import type { CollectionEntry } from "astro:content"
+
+import { getCollection } from "astro:content"
+
+import BlogLayout from "@/layouts/BlogLayout.astro"
+import Aside from "@/components/Aside.astro"
+import Pagination from "@/components/Pagination.astro"
+
+import { getFormattedDate, getUniqueTags, sortMDByDate } from "@/lib"
+
+interface Props {
+	page: Page<CollectionEntry<"blog">>
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = await getCollection("blog")
+  const tags = getUniqueTags(posts)
+  const sortedPosts = sortMDByDate(posts)
+
+  return tags.map((tag) => {
+		const filterPosts = sortedPosts.filter((post) => post.data.tags?.includes(tag));
+    
+    return paginate(filterPosts, {
+      params: { tag },
+      pageSize: 50,
+    });
+  });
+}
+
+const { page } = Astro.props
+const { tag } = Astro.params
+
+const posts = await getCollection("blog")
+const tags = getUniqueTags(posts)
+---
+
+<BlogLayout>
+  <div class="container mx-auto px-4 md:px-0 mb-16">
+    <div class="flex flex-wrap pt-4">
+      <Aside tags={tags} />
+      <div class="w-full lg:w-3/4 lg:pl-8 xl:pl-12">
+        <section>
+          <h2 class="font-bold font-header text-4xl from-pink-600 bg-clip-text bg-gradient-to-r text-transparent to-blue-600 mb-5">Tag → {`#${tag}`}</h2>
+          {page.data.map(({ slug, data: { title, pubDate } }) => {
+            return (
+              <article>
+                <header class="flex items-end gap-6 pb-1">
+                  <time class="font-text text-xs w-20" datetime={pubDate.toDateString()}>/{getFormattedDate({ date: pubDate })}</time>
+                  <h2 class="font-bold font-header text-sm text-slate-900">
+                    <a href={`/${slug}`}>{title}</a>
+                  </h2>
+                </header>
+              </article>
+            )
+          })}
+        </section>
+        <Pagination page={page} url={`/tags/${tag}/`} />
+      </div>
+    </div>
+  </div>
+</BlogLayout>

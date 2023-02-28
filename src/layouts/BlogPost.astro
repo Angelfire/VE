@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import BaseHead from '@/components/BaseHead.astro'
+import Header from '@/components/Header.astro'
+
+type Props = CollectionEntry<'blog'>['data']
+
+import { getFormattedDate } from '@/lib'
+import Me from '@/components/Me.astro'
+
+const { description, title, pubDate } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen">
+      <Header isRootPath={false} />
+      <main class="flex flex-1 flex-col mt-12 w-full">
+        <article class="container mx-auto max-w-screen-lg px-4 md:px-0 mb-16" itemscope itemtype="http://schema.org/Article">
+          <header class="mb-8">
+            <h1 class="font-header border-b border-slate-300 pb-2 text-3xl font-bold" itemprop="headline">{title}</h1>
+            <div class="flex justify-between pt-2">
+              <time class="font-text text-xs pb-1">{ getFormattedDate({ date: pubDate }) }</time>
+            </div>
+          </header>
+          <div class="max-w-screen-lg prose prose-h2:mt-1 prose-code:font-light prose-code:font-mono prose-code:p-1 prose-code:rounded prose-code:text-blue-500 prose-pre:text-xs prose-a:text-blue-500 prose-a:underline a:hover:no-underline prose-blockquote:bg-gray-100 prose-blockquote:mx-9 prose-blockquote:font-light">
+            <slot />
+          </div>
+          <Me />
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
