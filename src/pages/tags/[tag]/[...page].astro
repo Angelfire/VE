@@ -49,9 +49,9 @@ const tags = getUniqueTags(posts)
           {page.data.map(({ slug, data: { title, pubDate } }) => {
             return (
               <article>
-                <header class="flex items-end gap-6 pb-1">
+                <header class="flex gap-6 pb-1">
                   <time class="font-text text-xs w-20" datetime={pubDate.toDateString()}>/{getFormattedDate({ date: pubDate })}</time>
-                  <h2 class="font-bold font-header text-sm text-slate-900">
+                  <h2 class="font-bold font-header text-sm text-slate-900 w-56 md:w-full">
                     <a href={`/${slug}`}>{title}</a>
                   </h2>
                 </header>
