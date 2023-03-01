@@ -1,19 +1,19 @@
 ---
-import Emoji from '@/components/Emoji.astro'
-import BlogLayout from '@/layouts/BlogLayout.astro'
+import Emoji from "@/components/Emoji.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
 ---
 
 <BlogLayout
-  title="Velocidad de Escape - 404 You found a missing page!"
-  description="Oops! It looks like this page is lost in space!"
+	title="Velocidad de Escape - 404 You found a missing page!"
+	description="Oops! It looks like this page is lost in space!"
 >
-  <div class="container mx-auto px-4 md:px-0 mb-16">
-    <div class="flex flex-col items-center justify-center gap-2">
-      <Emoji />
-      <h2 class="text-9xl font-bold text-center text-slate-500">404</h2>
-      <p class="text-center text-3xl">Oops! It looks like this page is lost in space!</p>
-      <p>But do not worry, you can find plenty of other things in our homepage.</p>
-      <a href="/" class="bg-slate-200 px-4 py-3 rounded-lg">Go to Homepage</a>
-    </div>
-  </div>
+	<div class="container mx-auto mb-16 px-4 md:px-0">
+		<div class="flex flex-col items-center justify-center gap-2">
+			<Emoji />
+			<h2 class="text-center text-9xl font-bold text-slate-500">404</h2>
+			<p class="text-center text-3xl">Oops! It looks like this page is lost in space!</p>
+			<p>But do not worry, you can find plenty of other things in our homepage.</p>
+			<a href="/" class="rounded-lg bg-slate-200 px-4 py-3">Go to Homepage</a>
+		</div>
+	</div>
 </BlogLayout>

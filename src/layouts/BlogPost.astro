@@ -1,58 +1,63 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from "astro:content"
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<"blog">["data"]
 
-import BlogLayout from '@/layouts/BlogLayout.astro'
+import BlogLayout from "@/layouts/BlogLayout.astro"
 import Caret from "@/components/icons/Caret.astro"
-import Me from '@/components/Me.astro'
+import Me from "@/components/Me.astro"
 
-import { getFormattedDate } from '@/lib'
+import { getFormattedDate } from "@/lib"
 
 const { description, title, pubDate } = Astro.props
 ---
+
 <script>
-  const scrollBtn = document.getElementById("topHeader") as HTMLButtonElement
-  const targetHeader = document.getElementById("header") as HTMLDivElement
-  const observer = new IntersectionObserver(callback)
+	const scrollBtn = document.getElementById("topHeader") as HTMLButtonElement
+	const targetHeader = document.getElementById("header") as HTMLDivElement
+	const observer = new IntersectionObserver(callback)
 
-  observer.observe(targetHeader)
+	observer.observe(targetHeader)
 
-  function callback(entries: IntersectionObserverEntry[]) {
-    entries.forEach((entry) => {
-      // only show the scroll to top button when the heading is out of view
-      scrollBtn.dataset.show = (!entry.isIntersecting).toString();
-    })
-  }
+	function callback(entries: IntersectionObserverEntry[]) {
+		entries.forEach(entry => {
+			// only show the scroll to top button when the heading is out of view
+			scrollBtn.dataset.show = (!entry.isIntersecting).toString()
+		})
+	}
 
-  scrollBtn.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" })
-  })
+	scrollBtn.addEventListener("click", () => {
+		document.documentElement.scrollTo({ top: 0, behavior: "smooth" })
+	})
 </script>
 
-<BlogLayout
-  title={title}
-  description={description}
->
-  <article class="container mx-auto max-w-screen-lg px-4 md:px-0 mb-16" itemscope itemtype="http://schema.org/Article">
-    <header class="mb-8" id="header">
-      <h1 class="font-header border-b border-slate-300 pb-2 text-3xl font-bold" itemprop="headline">{title}</h1>
-      <div class="flex justify-between pt-2">
-        <time class="font-text text-xs pb-1">{ getFormattedDate({ date: pubDate }) }</time>
-      </div>
-    </header>
-    <div class="max-w-screen-lg prose prose-h2:mt-1 prose-code:font-light prose-code:font-mono prose-code:p-1 prose-code:rounded prose-code:text-blue-500 prose-pre:text-xs prose-a:text-blue-500 prose-a:underline a:hover:no-underline prose-blockquote:bg-gray-100 prose-blockquote:mx-9 prose-blockquote:font-normal prose-blockquote:pr-4">
-      <slot />
-    </div>
-    <Me />
-  </article>
-  <button
-    id="topHeader"
-    class="z-90 fixed bottom-20 hidden right-4 h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
-    aria-label="Back to Top"
-    data-show="false"
-    >
-    <Caret />
-  </button>
+<BlogLayout title={title} description={description}>
+	<article
+		class="container mx-auto max-w-screen-lg px-4 md:px-0"
+		itemscope
+		itemtype="http://schema.org/Article"
+	>
+		<header class="mb-8" id="header">
+			<h1 class="font-header border-b border-slate-300 pb-2 text-3xl font-bold" itemprop="headline">
+				{title}
+			</h1>
+			<div class="flex justify-between pt-2">
+				<time class="font-text pb-1 text-xs">{getFormattedDate({ date: pubDate })}</time>
+			</div>
+		</header>
+		<div
+			class="a:hover:no-underline prose max-w-screen-lg prose-h2:mt-1 prose-a:text-blue-500 prose-a:underline prose-blockquote:mx-9 prose-blockquote:bg-gray-100 prose-blockquote:pr-4 prose-blockquote:font-normal prose-code:rounded prose-code:p-1 prose-code:font-mono prose-code:font-light prose-code:text-blue-500 prose-pre:text-xs"
+		>
+			<slot />
+		</div>
+		<Me />
+	</article>
+	<button
+		id="topHeader"
+		class="z-90 fixed bottom-20 right-4 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
+		aria-label="Back to Top"
+		data-show="false"
+	>
+		<Caret />
+	</button>
 </BlogLayout>
-

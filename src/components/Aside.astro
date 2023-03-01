@@ -7,77 +7,73 @@ import TwitterIcon from "@/components/icons/Twitter.astro"
 const { tags } = Astro.props
 ---
 
-<aside class="w-full lg:w-1/4 lg:border-r border-line lg:pr-8 xl:pr-12">
-  <div class="flex flex-col">
-    <div class="mb-3 text-slate-900">
-      <h2 class="font-header font-semibold text-2xl mb-4">
-        Index.
-      </h2>
-      <p class="text-sm">
-        I jot down some things about my personal interests, random thoughts and sometimes technical learnings from day to day. I hope you find some things useful.
-      </p>
-    </div>
-    <div class="flex gap-3 mb-12 md:mb-0 lg:pt-0">
-      <a
-        aria-label="Github account"
-        class="inline-flex items-center justify-center w-5 hover:opacity-60"
-        href="https://github.com/angelfire"
-        rel="noopener noreferrer"
-        target="_blank"
-        title="Github account"
-      >
-        <GithubIcon />
-      </a>
-      <a
-        aria-label="Linkedin account"
-        class="inline-flex items-center justify-center w-5 hover:opacity-60"
-        href="https://www.linkedin.com/in/sabedoya/"
-        rel="noopener noreferrer"
-        target="_blank"
-        title="Linkedin account"
-      >
-        <LinkedInIcon />
-      </a>
-      <a
-        aria-label="Rss Feed for Velocidad de Escape"
-        class="inline-flex items-center justify-center w-5 hover:opacity-60"
-        href="http://velocidadescape.com/rss.xml"
-        rel="noopener noreferrer"
-        target="_blank"
-        title="Rss Feed for Velocidad de Escape"
-      >
-        <RssIcon />
-      </a>
-      <a
-        aria-label="Twitter account"
-        class="inline-flex items-center justify-center w-5 hover:opacity-60"
-        href="https://twitter.com/MonsieurHart"
-        rel="noopener noreferrer"
-        target="_blank"
-        title="Linkedin account"
-      >
-        <TwitterIcon />
-      </a>
-    </div>
-    {(Astro.url.pathname !== '/tags/' && Astro.url.pathname !== '/tags') && (
-      <div class="mb-12 md:mt-12 md:mb-0">
-        <h2 class="font-header font-semibold text-2xl mb-4">
-          Tags.
-        </h2>
-        <ul class="flex flex-col gap-2">
-          {tags.map((tag, index) => (
-            <li class="text-slate-900 text-sm flex gap-5">
-              <span>{`/0${index}`}</span>
-              <a
-                class="underline hover:no-underline"
-                href={`/tags/${tag}`}
-              >
-                {`#${tag}`}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-  </div>
+<aside class="border-line w-full lg:w-1/4 lg:border-r lg:pr-8 xl:pr-12">
+	<div class="flex flex-col">
+		<div class="mb-3 text-slate-900">
+			<h2 class="font-header mb-4 text-2xl font-semibold">Index.</h2>
+			<p class="text-sm">
+				I jot down some things about my personal interests, random thoughts and sometimes technical
+				learnings from day to day. I hope you find some things useful.
+			</p>
+		</div>
+		<div class="mb-12 flex gap-3 md:mb-0 lg:pt-0">
+			<a
+				aria-label="Github account"
+				class="inline-flex w-5 items-center justify-center hover:opacity-60"
+				href="https://github.com/angelfire"
+				rel="noopener noreferrer"
+				target="_blank"
+				title="Github account"
+			>
+				<GithubIcon />
+			</a>
+			<a
+				aria-label="Linkedin account"
+				class="inline-flex w-5 items-center justify-center hover:opacity-60"
+				href="https://www.linkedin.com/in/sabedoya/"
+				rel="noopener noreferrer"
+				target="_blank"
+				title="Linkedin account"
+			>
+				<LinkedInIcon />
+			</a>
+			<a
+				aria-label="Rss Feed for Velocidad de Escape"
+				class="inline-flex w-5 items-center justify-center hover:opacity-60"
+				href="http://velocidadescape.com/rss.xml"
+				rel="noopener noreferrer"
+				target="_blank"
+				title="Rss Feed for Velocidad de Escape"
+			>
+				<RssIcon />
+			</a>
+			<a
+				aria-label="Twitter account"
+				class="inline-flex w-5 items-center justify-center hover:opacity-60"
+				href="https://twitter.com/MonsieurHart"
+				rel="noopener noreferrer"
+				target="_blank"
+				title="Linkedin account"
+			>
+				<TwitterIcon />
+			</a>
+		</div>
+		{
+			Astro.url.pathname !== "/tags/" && Astro.url.pathname !== "/tags" && (
+				<div class="mb-12 md:mt-12 md:mb-0">
+					<h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
+					<ul class="flex flex-col gap-2">
+						{tags.map((tag, index) => (
+							<li class="flex gap-5 text-sm text-slate-900">
+								<span>{`/0${index}`}</span>
+								<a class="underline hover:no-underline" href={`/tags/${tag}`}>
+									{`#${tag}`}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		}
+	</div>
 </aside>

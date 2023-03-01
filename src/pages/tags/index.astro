@@ -11,38 +11,35 @@ import BlogLayout from "@/layouts/BlogLayout.astro"
 import Aside from "@/components/Aside.astro"
 ---
 
-<BlogLayout
-  title="Velocidad de Escape - All Tags"
-  description="All Tags from Velocidad de Escape"
->
-  <div class="container mx-auto px-4 md:px-0 mb-16">
-    <div class="flex flex-wrap pt-4">
-      <Aside tags={tags} />
-      <div class="w-full lg:w-3/4 lg:pl-8 xl:pl-12">
-        <section>
-          <h2 class="font-header font-semibold text-2xl mb-4">
-            Tags.
-          </h2>
-          <ul class="flex flex-col gap-2">
-            {Object.entries(tagsCount).map(([tag, val], index) => (
-              <li class="text-slate-900 text-sm flex gap-5">
-                <span>{`/0${index}`}</span>
-                <div>
-                  <a
-                  class="underline hover:no-underline"
-                  href={`/tags/${tag}`}
-                  title={`View posts with the tag: ${tag}`}
-                  rel="prefetch"
-                >
-                  {`#${tag}`}
-                </a>
-                  - {val} Post{val > 1 && "s"}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </div>
-  </div>
+<BlogLayout title="Velocidad de Escape - All Tags" description="All Tags from Velocidad de Escape">
+	<div class="container mx-auto mb-16 px-4 md:px-0">
+		<div class="flex flex-wrap pt-4">
+			<Aside tags={tags} />
+			<div class="w-full lg:w-3/4 lg:pl-8 xl:pl-12">
+				<section>
+					<h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
+					<ul class="flex flex-col gap-2">
+						{
+							Object.entries(tagsCount).map(([tag, val], index) => (
+								<li class="flex gap-5 text-sm text-slate-900">
+									<span>{`/0${index}`}</span>
+									<div>
+										<a
+											class="underline hover:no-underline"
+											href={`/tags/${tag}`}
+											title={`View posts with the tag: ${tag}`}
+											rel="prefetch"
+										>
+											{`#${tag}`}
+										</a>
+										- {val} Post{val > 1 && "s"}
+									</div>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+			</div>
+		</div>
+	</div>
 </BlogLayout>

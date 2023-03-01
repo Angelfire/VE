@@ -3,9 +3,13 @@ import Beer from "@/components/icons/Beer.astro"
 import Heart from "@/components/icons/Heart.astro"
 ---
 
-<footer class="bg-slate-900 h-16 flex items-center">
-  <div class="container flex flex-col md:justify-between mx-auto px-4 md:px-0 md:flex-row">
-    <p class="font-text text-xs text-white">{`${new Date().getFullYear()} @Copyleft - All Wrongs Reserved`}</p>
-    <p class="font-text flex text-xs text-white gap-">Made with <Heart /> and <Beer /> in Colombia</p>
-  </div>
+<footer class="flex h-16 items-center bg-slate-900">
+	<div class="container mx-auto flex flex-col px-4 md:flex-row md:justify-between md:px-0">
+		<p class="font-text text-xs text-white">
+			{`${new Date().getFullYear()} @Copyleft - All Wrongs Reserved`}
+		</p>
+		<p class="font-text gap- flex text-xs text-white">
+			Made with <Heart /> and <Beer /> in Colombia
+		</p>
+	</div>
 </footer>
