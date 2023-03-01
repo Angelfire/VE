@@ -9,7 +9,7 @@ tags: ["CSS", "TailwindCSS"]
 
 Yesterday I was playing with OpenAI (as usual), creating one of my many experiments, testing new prompts, etc.
 
-## <a class="hover:no-underline text-blue underline" href="ttps://github.com/Angelfire/colorette" target="_blank" rel="noopener noreferrer">Colorette</a>
+## <a class="hover:no-underline text-blue underline" href="https://github.com/Angelfire/colorette" target="_blank" rel="noopener noreferrer">Colorette</a>
 ![Colorette](https://user-images.githubusercontent.com/315504/218640623-ebb99f22-96bc-41c7-8ec4-c774cbf1a590.png)
 
 Basically the idea is to generate a color palette with a description and a title based on a series of words that we indicate to the AI, up to this point it looks like a fairly simple data structure:
@@ -45,7 +45,7 @@ It seemed logical and simple... Why wouldn't it work?
 
 Spoiler, It didn't work...
 
-I tried many things, but in the end I had to open a <a class="hover:no-underline text-blue underline" href="(https://github.com/tailwindlabs/tailwindcss/discussions/10574" target="_blank" rel="noopener noreferrer">discussion in Github</a>, the first answer was very interesting:
+I tried many things, but in the end I had to open a <a class="hover:no-underline text-blue underline" href="https://github.com/tailwindlabs/tailwindcss/discussions/10574" target="_blank" rel="noopener noreferrer">discussion in Github</a>, the first answer was very interesting:
 
 >The most important implication of how Tailwind extracts class names is that it will only find classes that exist as complete unbroken strings in your source files.
 

@@ -20,14 +20,14 @@ const currentPath = Astro.url.pathname.slice(1)
 ---
 
 <nav aria-label="page navigation">
-  <ul class="flex gap-4">
+  <ul class="flex justify-between md:justify-start md:gap-4">
     {!isFirst && (
       <li>
         <a class="bg-slate-900 p-3 text-white" href={`${url}${prevPage}`} rel="prev">← Previous Page</a>
       </li>
     )}
     {numPosts > limit && Array.from({ length: numPages }, (_, i) => (
-      <li>
+      <li class="hidden md:block">
         <a class={`bg-slate-900 p-3 text-white ${currentPath === String(i + 1) ? 'opacity-50' : 'opacity-1'}`} href={`${url}${i === 0 ? '' : i + 1}`}>{i + 1}</a>
       </li>
     ))}

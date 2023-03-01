@@ -7,24 +7,24 @@ import TwitterIcon from "@/components/icons/Twitter.astro"
 const { tags } = Astro.props
 ---
 
-<aside class="w-full lg:w-1/4 lg:border-r border-line lg:px-8 xl:px-12">
+<aside class="w-full lg:w-1/4 lg:border-r border-line lg:pr-8 xl:pr-12">
   <div class="flex flex-col">
     <div class="mb-3 text-slate-900">
       <h2 class="font-header font-semibold text-2xl mb-4">
         Index.
       </h2>
-      <p class="break-words text-sm">
+      <p class="text-sm">
         I jot down some things about my personal interests, random thoughts and sometimes technical learnings from day to day. I hope you find some things useful.
       </p>
     </div>
-    <footer class="flex gap-3 mb-12 md:mb-0 lg:pt-0">
+    <div class="flex gap-3 mb-12 md:mb-0 lg:pt-0">
       <a
-        aria-label="Personal Github account"
+        aria-label="Github account"
         class="inline-flex items-center justify-center w-5 hover:opacity-60"
         href="https://github.com/angelfire"
         rel="noopener noreferrer"
         target="_blank"
-        title="Personal Github account"
+        title="Github account"
       >
         <GithubIcon />
       </a>
@@ -58,9 +58,9 @@ const { tags } = Astro.props
       >
         <TwitterIcon />
       </a>
-    </footer>
+    </div>
     {(Astro.url.pathname !== '/tags/' && Astro.url.pathname !== '/tags') && (
-      <div class="mt-12">
+      <div class="mb-12 md:mt-12 md:mb-0">
         <h2 class="font-header font-semibold text-2xl mb-4">
           Tags.
         </h2>
