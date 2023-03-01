@@ -42,7 +42,9 @@ const { description, title, pubDate } = Astro.props
         {title}
       </h1>
       <div class="flex justify-between pt-2">
-        <time class="font-text pb-1 text-xs">{getFormattedDate({ date: pubDate })}</time>
+        <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}
+          >{getFormattedDate({ date: pubDate })}</time
+        >
       </div>
     </header>
     <div

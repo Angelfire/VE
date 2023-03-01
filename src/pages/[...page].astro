@@ -1,7 +1,12 @@
 ---
-import type { GetStaticPathsOptions } from "astro"
+import type { GetStaticPathsOptions, Page } from "astro"
+import type { CollectionEntry } from "astro:content"
 
 import { getCollection } from "astro:content"
+
+interface Props {
+  page: Page<CollectionEntry<"blog">>
+}
 
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import Aside from "@/components/Aside.astro"
@@ -12,10 +17,10 @@ import { getFormattedDate, getUniqueTags, sortMDByDate } from "@/lib"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog")
-  const sortPosts = sortMDByDate(posts)
+  const sortedPosts = sortMDByDate(posts)
   const uniqueTags = getUniqueTags(posts)
 
-  return paginate(sortPosts, { props: { uniqueTags }, pageSize: 4 })
+  return paginate(sortedPosts, { props: { uniqueTags }, pageSize: 4 })
 }
 
 const { page, uniqueTags } = Astro.props
@@ -35,7 +40,7 @@ const { page, uniqueTags } = Astro.props
               return (
                 <article class="mb-12">
                   <header class="mb-4 flex items-end gap-6 border-b border-dashed border-slate-900 pb-1">
-                    <time class="font-text pb-1 text-xs" datetime={pubDate}>
+                    <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}>
                       /{getFormattedDate({ date: pubDate })}
                     </time>
                     <h2 class="font-header text-3xl font-bold text-slate-900">
