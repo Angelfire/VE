@@ -1,7 +1,7 @@
 ---
 export interface Props {
-	page: any
-	url?: string
+  page: any
+  url?: string
 }
 
 const { page, url = "/" } = Astro.props
@@ -20,39 +20,39 @@ const currentPath = Astro.url.pathname.slice(1)
 ---
 
 <nav aria-label="page navigation">
-	<ul class="flex justify-between md:justify-start md:gap-4">
-		{
-			!isFirst && (
-				<li>
-					<a class="bg-slate-900 p-3 text-white" href={`${url}${prevPage}`} rel="prev">
-						← Previous Page
-					</a>
-				</li>
-			)
-		}
-		{
-			numPosts > limit &&
-				Array.from({ length: numPages }, (_, i) => (
-					<li class="hidden md:block">
-						<a
-							class={`bg-slate-900 p-3 text-white ${
-								currentPath === String(i + 1) ? "opacity-50" : "opacity-1"
-							}`}
-							href={`${url}${i === 0 ? "" : i + 1}`}
-						>
-							{i + 1}
-						</a>
-					</li>
-				))
-		}
-		{
-			!isLast && (
-				<li>
-					<a class="bg-slate-900 p-3 text-white" href={`${url}${nextPage}`} rel="next">
-						Next Page →
-					</a>
-				</li>
-			)
-		}
-	</ul>
+  <ul class="flex justify-between md:justify-start md:gap-4">
+    {
+      !isFirst && (
+        <li>
+          <a class="bg-slate-900 p-3 text-white" href={`${url}${prevPage}`} rel="prev">
+            ← Previous Page
+          </a>
+        </li>
+      )
+    }
+    {
+      numPosts > limit &&
+        Array.from({ length: numPages }, (_, i) => (
+          <li class="hidden md:block">
+            <a
+              class={`bg-slate-900 p-3 text-white ${
+                currentPath === String(i + 1) ? "opacity-50" : "opacity-1"
+              }`}
+              href={`${url}${i === 0 ? "" : i + 1}`}
+            >
+              {i + 1}
+            </a>
+          </li>
+        ))
+    }
+    {
+      !isLast && (
+        <li>
+          <a class="bg-slate-900 p-3 text-white" href={`${url}${nextPage}`} rel="next">
+            Next Page →
+          </a>
+        </li>
+      )
+    }
+  </ul>
 </nav>
