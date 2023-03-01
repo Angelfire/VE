@@ -4,7 +4,7 @@ slug: "css/styling-markdown-tailwind-gatsby"
 pubDate: "2020-07-14"
 description: "Styling markdown posts with Tailwind CSS in GatsbyJS"
 author: "Andres Bedoya"
-tags: ["CSS"]
+tags: ["CSS", "TailwindCSS"]
 ---
 
 When I decided to create this blog, I was very clear that I wanted to do it in the easiest way possible, I didn't want to have to deal with databases, CMS, etc.

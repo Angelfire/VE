@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content"
 import { getCollection } from "astro:content"
 
 interface Props {
-	page: Page<CollectionEntry<"blog">>
+  page: Page<CollectionEntry<"blog">>
 }
 
 import BlogLayout from "@/layouts/BlogLayout.astro"
@@ -20,7 +20,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const sortedPosts = sortMDByDate(posts)
 
   return tags.map((tag) => {
-		const filterPosts = sortedPosts.filter((post) => post.data.tags?.includes(tag));
+    const filterPosts = sortedPosts.filter((post) => post.data.tags?.includes(tag));
     
     return paginate(filterPosts, {
       params: { tag },
@@ -37,7 +37,7 @@ const tags = getUniqueTags(posts)
 ---
 
 <BlogLayout
-  title={`Tag: ${tag}`}
+  title={`Velocidad de Escape - Tag: ${tag}`}
   description={`Posts tagged with: ${tag}`}
 >
   <div class="container mx-auto px-4 md:px-0 mb-16">
