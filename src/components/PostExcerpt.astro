@@ -5,7 +5,7 @@ type PostExcerptProps = {
   addEllipsis?: boolean
 }
 
-const { text, maxLength = 0, addEllipsis = true } = Astro.props as PostExcerptProps
+const { text, maxLength = 210, addEllipsis = true } = Astro.props as PostExcerptProps
 
 let postExcerpt = ""
 
@@ -14,11 +14,11 @@ if (typeof text !== "string") {
 }
 
 if (typeof maxLength !== "number") {
-  throw new Error("maxLength must be a number")
+  throw new TypeError("maxLength must be a number")
 }
 
 if (typeof addEllipsis !== "boolean") {
-  throw new Error("addEllipsis must be a boolean")
+  throw new TypeError("addEllipsis must be a boolean")
 }
 
 postExcerpt = text
