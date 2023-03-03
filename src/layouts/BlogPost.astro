@@ -1,13 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content"
-
-type Props = CollectionEntry<"blog">["data"]
-
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import Caret from "@/components/icons/Caret.astro"
 import Me from "@/components/Me.astro"
 
 import { getFormattedDate } from "@/lib"
+
+interface Props {
+  description: string
+  title: string
+  pubDate: Date
+}
 
 const { description, title, pubDate } = Astro.props
 ---
