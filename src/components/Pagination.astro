@@ -42,9 +42,9 @@ const currentPath = Astro.url.pathname.slice(1)
             >
               {i + 1}
             </a>
-            {currentPath}
-            {String(i + 1)}
-            {currentPath === String(i + 1)}
+            currentPage: {currentPath}
+            la paginacion: {String(i + 1)}
+            la igualdad: {currentPath === String(i + 1)}
           </li>
         ))
     }
