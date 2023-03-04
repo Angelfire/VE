@@ -17,6 +17,7 @@ const prevPage = currentPage - 1 === 1 ? "" : currentPage - 1
 const nextPage = currentPage + 1
 
 const currentPath = Astro.url.pathname.slice(1)
+const completePath = `${currentPath}/`
 ---
 
 <nav aria-label="page navigation">
@@ -36,7 +37,7 @@ const currentPath = Astro.url.pathname.slice(1)
           <li class="hidden md:block">
             <a
               class={`bg-slate-900 p-3 text-white ${
-                currentPath === String(i + 1) ? "opacity-50" : "opacity-1"
+                completePath === String(i + 1) ? "opacity-50" : "opacity-1"
               }`}
               href={`${url}${i === 0 ? "" : i + 1}`}
             >
