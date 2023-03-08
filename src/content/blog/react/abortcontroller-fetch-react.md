@@ -1,13 +1,13 @@
 ---
 title: "Using AbortController in React"
 slug: "react/using-abortcontroller-react"
-pubDate: "2023-03-07"
+pubDate: "2023-03-08"
 description: "Can't perform a React state update on an unmounted component. Using AbortController, why and how"
 author: "Andres Bedoya"
 tags: ["React"]
 ---
 
-The use of `AbortController` is helpful in situations where a network request needs to be canceled before it completes, such as when the user navigates to a different page or when a request needs to be interrupted that is taking too long to complete.
+The use of <a class="hover:no-underline text-blue underline" href="https://axios-http.com/docs/cancellation#cancel-token-code-deprecated-code" target="_blank" rel="noopener noreferrer">AbortController</a> is helpful in situations where a network request needs to be canceled before it completes, such as when the user navigates to a different page or when a request needs to be interrupted that is taking too long to complete.
 
 `AbortController` provides a more flexible and precise way to cancel network requests. By creating an instance of `AbortController`, a **signal** can be generated that can be passed to a network request. If the `abort()` method of the abort controller is called at any time before the request completes, a cancellation signal will be emitted that can be detected in the client code. This allows for immediate cancellation of a request, which can save time and improve the user experience.
 
