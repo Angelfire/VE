@@ -1,8 +1,8 @@
 ---
-title: "Why in JS typeof array and null are object?"
+title: "Why in JS typeof array and null is object?"
 slug: "js/why-js-typeof-array-null-object"
 pubDate: "2023-05-10"
-description: "Why in JS typeof array and null are object?"
+description: "Why in JS typeof array and null is object?"
 author: "Andres Bedoya"
 tags: ["JavaScript"]
 ---
