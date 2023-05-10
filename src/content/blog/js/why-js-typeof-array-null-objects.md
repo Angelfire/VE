@@ -31,7 +31,7 @@ Based on this table, several questions already arise if you are a beginner in Ja
 
 ## Why `typeof null` returns `object`
 
-As for null values, it is a historical quirk that the typeof operator returns "object" for them. This is because the binary representation of null in JavaScript is all zeros, which is the same as the binary representation of an empty object. As a result, when the typeof operator is applied to a null value, it mistakenly returns "object".
+It is a historical quirk that the typeof operator returns `"object"` for them. This is because the binary representation of null in JavaScript is all zeros, which is the same as the binary representation of an empty object. As a result, when the typeof operator is applied to a null value, it mistakenly returns `"object"`.
 
 And a better explanation of this, was written by <a class="hover:no-underline text-blue underline" href="https://2ality.com/2013/10/typeof-null.html" target="_blank" rel="noopener noreferrer">**Dr. Axel Rauschmayer**</a>:
 
