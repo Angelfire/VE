@@ -2,7 +2,7 @@
 title: "Memory Management in JavaScript and Garbage Collector"
 slug: "js/memory-management-js-garbage-collector"
 pubDate: "2023-05-11"
-description: "how is memory management in javascript and how garbage collector works"
+description: "How is memory management in javascript and how garbage collector works"
 author: "Andres Bedoya"
 tags: ["JavaScript"]
 ---
