@@ -6,6 +6,7 @@ import { getCollection } from "astro:content"
 
 interface Props {
   page: Page<CollectionEntry<"blog">>
+  uniqueTags: string[]
 }
 
 import BlogLayout from "@/layouts/BlogLayout.astro"

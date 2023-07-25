@@ -1,6 +1,7 @@
 ---
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import Caret from "@/components/icons/Caret.astro"
+
+import Airplane from "@/components/icons/Airplane.astro"
 import Me from "@/components/Me.astro"
 
 import { getFormattedDate } from "@/lib"
@@ -62,6 +63,6 @@ const { description, title, pubDate } = Astro.props
     aria-label="Back to Top"
     data-show="false"
   >
-    <Caret />
+    <Airplane />
   </button>
 </BlogLayout>
