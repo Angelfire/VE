@@ -2,7 +2,7 @@
 title: "Do people understand how Template Literals work in JavaScript?"
 slug: "js/people-dont-understand-template-literals"
 pubDate: "2023-11-09"
-description: "Why in JS typeof array and null is object?"
+description: "Do people understand how Template Literals work in JavaScript? And what about Server Actions in React"
 author: "Andres Bedoya"
 tags: ["JavaScript"]
 ---
