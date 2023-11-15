@@ -39,3 +39,5 @@ console.log(earlierDate.toUTCString()) // Fri, 01 Jan 1960 00:00:00 GMT
 In this example, `-315619200000` is the time value in milliseconds for _January 1, 1960_. You can adjust this value to represent other dates before 1970.
 
 Keep in mind that dates before January 1, 1970, are handled by JavaScript as negative dates relative to Epoch Time, and precision may decrease for very ancient dates due to representation limitations.
+
+**Geek the Planet!**
