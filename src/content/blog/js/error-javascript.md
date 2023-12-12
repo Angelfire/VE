@@ -52,7 +52,7 @@ So as a personal note I'm going to post all the built-in error objects that Java
     throw new URIError("This is an invalid URI")
     ```
 
-You can find more informacion in <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" target="_blank" rel="noopener noreferrer">MDN Error</a>.
+You can find more informacion in <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" target="_blank" rel="noreferrer">MDN Error</a>.
 
 And did you know that you could create even your own errors? :)
 

@@ -18,7 +18,7 @@ Mosh is one of the best tutors I have ever met, and I don't want to copy a ton o
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PFmuCDHHpwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Also, this is a very interesting resource in Medium:
-<a class="hover:no-underline text-blue underline" href="https://medium.com/better-programming/object-oriented-programming-in-javascript-b3bda28d3e81" target="_blank" rel="noopener noreferrer">A Guide to Object-Oriented Programming in JavaScript</a> and of course this from Eric Ellioot <a class="hover:no-underline text-blue underline" href="https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9" target="_blank" rel="noopener noreferrer">Master the JavaScript Interview: What’s the Difference Between Class & Prototypal Inheritance?</a>.
+<a class="hover:no-underline text-blue underline" href="https://medium.com/better-programming/object-oriented-programming-in-javascript-b3bda28d3e81" target="_blank" rel="noreferrer">A Guide to Object-Oriented Programming in JavaScript</a> and of course this from Eric Ellioot <a class="hover:no-underline text-blue underline" href="https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9" target="_blank" rel="noreferrer">Master the JavaScript Interview: What’s the Difference Between Class & Prototypal Inheritance?</a>.
 
 I made an easy example:
 

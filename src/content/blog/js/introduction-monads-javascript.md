@@ -25,7 +25,7 @@ Imagine you have a box that can only hold one type of toy, let's say it can only
 
 That's what a monad does with values in your code. It takes a value, puts it in a "box" so that you can work with it in a safe and organized way, and then takes it out when you're done. Just like with the toy box, this makes it easier for you to keep track of what's going on in your code, and helps you make sure that everything works the way it should.
 
-One of the most famous articles about Monads in JavaScript was written by *Eric Elliott* ~5 years ago, <a class="hover:no-underline text-blue underline" href="https://medium.com/javascript-scene/javascript-monads-made-simple-7856be57bfe8" target="_blank" rel="noopener noreferrer">JavaScript Monads Made Simple</a>. But to be completely honest and with all due respect to Eric, there is no way that after reading his article you will say: Wow, that's great, I understood everything, I'm refactoring my code right now... It's absolutely dense.
+One of the most famous articles about Monads in JavaScript was written by *Eric Elliott* ~5 years ago, <a class="hover:no-underline text-blue underline" href="https://medium.com/javascript-scene/javascript-monads-made-simple-7856be57bfe8" target="_blank" rel="noreferrer">JavaScript Monads Made Simple</a>. But to be completely honest and with all due respect to Eric, there is no way that after reading his article you will say: Wow, that's great, I understood everything, I'm refactoring my code right now... It's absolutely dense.
 
 One of the few parts that was clear to me:
 
@@ -101,7 +101,7 @@ const result = login().run()
 console.log(result) // logs: {username: 'yourusername', password: 'yourpassword'}
 ```
 
-And of course, you can find much more complex examples, like this one <a class="hover:no-underline text-blue underline" href="https://blog.logrocket.com/javascript-either-monad-error-handling/" target="_blank" rel="noopener noreferrer">Using the JavaScript Either monad for error handling</a>.
+And of course, you can find much more complex examples, like this one <a class="hover:no-underline text-blue underline" href="https://blog.logrocket.com/javascript-either-monad-error-handling/" target="_blank" rel="noreferrer">Using the JavaScript Either monad for error handling</a>.
 
 ## Benefits
 Some of these benefits are described in theory. But after reading and trying to understand, it's really hard (at least for me) trying to apply this in my day to day.

@@ -7,7 +7,7 @@ author: "Andres Bedoya"
 tags: ["JavaScript"]
 ---
 
-If you have multiple projects in your computer, it's probable that all of them use a different version of NodeJS. For this reason, there are packages like <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener noreferrer">NVM (Node Version Manager)</a> that allow you to do exactly that, handle different versions of NodeJS without too much extra configuration.
+If you have multiple projects in your computer, it's probable that all of them use a different version of NodeJS. For this reason, there are packages like <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm" target="_blank" rel="noreferrer">NVM (Node Version Manager)</a> that allow you to do exactly that, handle different versions of NodeJS without too much extra configuration.
 
 Its installation and use are tremendously basic, just need to run `nvm help` if you need more help.
 
@@ -65,7 +65,7 @@ load-nvmrc
 
 **Friendly reminder**: place the previous code after nvm initialization!
 
-These are the instructions for <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm#bash" target="_blank" rel="noopener noreferrer">bash</a> and <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm#fish" target="_blank" rel="noopener noreferrer">fish</a>
+These are the instructions for <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm#bash" target="_blank" rel="noreferrer">bash</a> and <a class="hover:no-underline text-blue underline" href="https://github.com/nvm-sh/nvm#fish" target="_blank" rel="noreferrer">fish</a>
 
 If a project does not have the `.nvmrc` file, nvm will use the default version of your system.
 

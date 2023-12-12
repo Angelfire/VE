@@ -14,8 +14,8 @@ I know by now you may be tired of hearing so much about OpenAI and ChatGPT. The 
 We are going to start at the beginning, although I am not going to give you the basic definitions, you can find those in google, let's go straight to the point...
 
 ## Access to OpenAI
-- First thing you’ll need to do is to create an account on <a class="hover:no-underline text-blue underline" href="https://beta.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a>
-- Then, go to the <a class="hover:no-underline text-blue underline" href="https://beta.openai.com/playground" target="_blank" rel="noopener noreferrer">Playground</a>
+- First thing you’ll need to do is to create an account on <a class="hover:no-underline text-blue underline" href="https://beta.openai.com/" target="_blank" rel="noreferrer">OpenAI</a>
+- Then, go to the <a class="hover:no-underline text-blue underline" href="https://beta.openai.com/playground" target="_blank" rel="noreferrer">Playground</a>
 
 Don’t worry to much about those settings on the right sidebar, they are important but not to much (for us), for now...
 
@@ -25,7 +25,7 @@ A prompt is what you input to GPT-*. It sounds like something really simple, but
 - One of these is the **Temperature**, one of those parameters (hyperparameters) that I told you not to worry about. The temperature tells the model how much risk it should take when giving a response to a given prompt.
 
     A higher temperature (of 0.9) is better for more creative things. A lower temperature (of 0.1) is better for prompts where you expect a "right answer".
-- The second is the well-known  <a class="hover:no-underline text-blue underline" href="https://towardsdatascience.com/understanding-zero-shot-learning-making-ml-more-human-4653ac35ccab" target="_blank" rel="noopener noreferrer">"zero-shot learning" (ZSL)</a>, <a class="hover:no-underline text-blue underline" href="https://medium.com/idatha-enterprise-experience-academic-s/hablemos-de-zero-shot-learning-db52bd558e7" target="_blank" rel="noopener noreferrer">"zero-shot learning" (ZSL) in spanish</a> problem. In this case a model can correctly predict objects for a class of which it has never seen an example before.
+- The second is the well-known  <a class="hover:no-underline text-blue underline" href="https://towardsdatascience.com/understanding-zero-shot-learning-making-ml-more-human-4653ac35ccab" target="_blank" rel="noreferrer">"zero-shot learning" (ZSL)</a>, <a class="hover:no-underline text-blue underline" href="https://medium.com/idatha-enterprise-experience-academic-s/hablemos-de-zero-shot-learning-db52bd558e7" target="_blank" rel="noreferrer">"zero-shot learning" (ZSL) in spanish</a> problem. In this case a model can correctly predict objects for a class of which it has never seen an example before.
 
     I am going to give you an example, what would happen if we showed the AI a photo of an animal that it had never seen? Will it be able to guess which animal it is? Let's say the animal is a zebra and also the AI has seen pictures of horses before. In turn, you have been told that zebras are similar to horses but with stripes. In this scenario, it is very likely that the AI will correctly deduce the name of the animal.
 

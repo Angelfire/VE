@@ -7,7 +7,7 @@ author: "Andres Bedoya"
 tags: ["Personal"]
 ---
 
-A long time has passed since the last time I blogged. <a class="hover:no-underline text-blue underline" href="https://geektheplanet.net/" target="_blank" rel="noopener noreferrer">Geek the Planet</a> was my blog for over 10 years.
+A long time has passed since the last time I blogged. <a class="hover:no-underline text-blue underline" href="https://geektheplanet.net/" target="_blank" rel="noreferrer">Geek the Planet</a> was my blog for over 10 years.
 
 I remember that I started writing about technology because I have been passionate about it since I was a child. I was always a very curious young man and from a very young age I started studying about HTML, CSS, Python, JavaScript, Linux, Hacking, etc. But each new learning brought its new challenges, a super slow connection speed, sometimes little documentation (there was no Stack Overflow), I had to read a lot to solve something.
 
@@ -23,11 +23,11 @@ For many years my blog went from being a hobby to being a job, the blog was mone
 
 My last publication was on March 14, 2017, I was already a computer and systems engineer, I already had a job, I met beer and I never published again...
 
-I decided to create a blog using <a class="hover:no-underline text-blue underline" href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> (I also use <a class="hover:no-underline text-blue underline" href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwindcss</a> for the first time), very complex to create it from scratch, but I wanted to live the experience of understanding how this open source framework works well to create websites. This blog still has a lot of errors (the design is quite minimalist), it is not responsive. If you find something you would like me to improve I would like you to let me know, I would be really grateful.
+I decided to create a blog using <a class="hover:no-underline text-blue underline" href="https://www.gatsbyjs.org/" target="_blank" rel="noreferrer">Gatsby</a> (I also use <a class="hover:no-underline text-blue underline" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwindcss</a> for the first time), very complex to create it from scratch, but I wanted to live the experience of understanding how this open source framework works well to create websites. This blog still has a lot of errors (the design is quite minimalist), it is not responsive. If you find something you would like me to improve I would like you to let me know, I would be really grateful.
 
 My idea is to continue sharing knowledge with the world, now I am a web developer with little more than 9 years of experience, but I have never lost the spirit of blogger and curiosity.
 
-If you want to know a little more about me, you can visit my personal website <a class="hover:no-underline text-blue underline" href="https://srhart.co/" target="_blank" rel="noopener noreferrer">Sr.Hart</a>.
+If you want to know a little more about me, you can visit my personal website <a class="hover:no-underline text-blue underline" href="https://srhart.co/" target="_blank" rel="noreferrer">Sr.Hart</a>.
 
 *My English is quite bad and I usually make terrible mistakes, sorry, I will try to improve.*
 

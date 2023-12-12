@@ -29,15 +29,15 @@ Be confident.
 We are developers (many of us). These days our resume is important, but having a repository with our projects could be even more important. Many companies check how active you are, if you are a great contributor to free software projects, if you mentor and help others, and if you share your projects with others. This also implicitly shows that you are a person who constantly studies new things and likes to learn.
 
 ## 10 JavaScript concepts you need to know for interviews
-- <a class="hover:no-underline text-blue underline" href="https://www.educative.io/courses/step-up-your-js-a-comprehensive-guide-to-intermediate-javascript/7nAZrnYW9rG" target="_blank" rel="noopener noreferrer">value vs reference</a>
-- <a class="hover:no-underline text-blue underline" href="https://scotch.io/tutorials/understanding-scope-in-javascript#toc-scope-in-javascript" target="_blank" rel="noopener noreferrer">scope</a>
-- <a class="hover:no-underline text-blue underline" href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/" target="_blank" rel="noopener noreferrer">hoisting</a>
-- <a class="hover:no-underline text-blue underline" href="http://javascriptissexy.com/understand-javascript-closures-with-ease/" target="_blank" rel="noopener noreferrer">closures</a>
-- <a class="hover:no-underline text-blue underline" href="https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040" target="_blank" rel="noopener noreferrer">this</a>
-- <a class="hover:no-underline text-blue underline" href="https://codeburst.io/javascripts-new-keyword-explained-as-simply-as-possible-fec0d87b2741" target="_blank" rel="noopener noreferrer">new</a>
-- <a class="hover:no-underline text-blue underline" href="https://codeplanet.io/javascript-apply-vs-call-vs-bind/" target="_blank" rel="noopener noreferrer">apply, call, bind</a>
-- <a class="hover:no-underline text-blue underline" href="https://codeburst.io/master-javascript-prototypes-inheritance-d0a9a5a75c4e" target="_blank" rel="noopener noreferrer">prototypes & inheritance</a>
-- <a class="hover:no-underline text-blue underline" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=948s" target="_blank" rel="noopener noreferrer">asynchronous JS</a>
-- <a class="hover:no-underline text-blue underline" href="https://www.sitepoint.com/higher-order-functions-javascript/" target="_blank" rel="noopener noreferrer">HOC - high order functions</a>
+- <a class="hover:no-underline text-blue underline" href="https://www.educative.io/courses/step-up-your-js-a-comprehensive-guide-to-intermediate-javascript/7nAZrnYW9rG" target="_blank" rel="noreferrer">value vs reference</a>
+- <a class="hover:no-underline text-blue underline" href="https://scotch.io/tutorials/understanding-scope-in-javascript#toc-scope-in-javascript" target="_blank" rel="noreferrer">scope</a>
+- <a class="hover:no-underline text-blue underline" href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/" target="_blank" rel="noreferrer">hoisting</a>
+- <a class="hover:no-underline text-blue underline" href="http://javascriptissexy.com/understand-javascript-closures-with-ease/" target="_blank" rel="noreferrer">closures</a>
+- <a class="hover:no-underline text-blue underline" href="https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040" target="_blank" rel="noreferrer">this</a>
+- <a class="hover:no-underline text-blue underline" href="https://codeburst.io/javascripts-new-keyword-explained-as-simply-as-possible-fec0d87b2741" target="_blank" rel="noreferrer">new</a>
+- <a class="hover:no-underline text-blue underline" href="https://codeplanet.io/javascript-apply-vs-call-vs-bind/" target="_blank" rel="noreferrer">apply, call, bind</a>
+- <a class="hover:no-underline text-blue underline" href="https://codeburst.io/master-javascript-prototypes-inheritance-d0a9a5a75c4e" target="_blank" rel="noreferrer">prototypes & inheritance</a>
+- <a class="hover:no-underline text-blue underline" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=948s" target="_blank" rel="noreferrer">asynchronous JS</a>
+- <a class="hover:no-underline text-blue underline" href="https://www.sitepoint.com/higher-order-functions-javascript/" target="_blank" rel="noreferrer">HOC - high order functions</a>
 
 And finally, many human resources people have a profession in psychology, for this reason they look at other details, which at first glance may seem irrelevant: **body language** (really important), also they enjoy when you made amazing questions about the company, the positions, etc.

@@ -7,7 +7,7 @@ author: "Andres Bedoya"
 tags: ["React"]
 ---
 
-The use of <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener noreferrer">AbortController</a> is helpful in situations where a network request needs to be canceled before it completes, such as when the user navigates to a different page or when a request needs to be interrupted that is taking too long to complete.
+The use of <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noreferrer">AbortController</a> is helpful in situations where a network request needs to be canceled before it completes, such as when the user navigates to a different page or when a request needs to be interrupted that is taking too long to complete.
 
 `AbortController` provides a more flexible and precise way to cancel network requests. By creating an instance of `AbortController`, a **signal** can be generated that can be passed to a network request. If the `abort()` method of the abort controller is called at any time before the request completes, a cancellation signal will be emitted that can be detected in the client code. This allows for immediate cancellation of a request, which can save time and improve the user experience.
 
@@ -83,6 +83,6 @@ To use `AbortController` in React, follow these steps:
 3. Use the `signal` method of the `AbortController` instance to create a signal that will be passed to the `fetch` method as an option.
 4. Use the `abort()` method of the abort controller to cancel the request.
 
-If you are using axios, they deprecated <a class="hover:no-underline text-blue underline" href="https://axios-http.com/docs/cancellation#cancel-token-code-deprecated-code" target="_blank" rel="noopener noreferrer">CancelToken</a>, so, you can use AbortController.
+If you are using axios, they deprecated <a class="hover:no-underline text-blue underline" href="https://axios-http.com/docs/cancellation#cancel-token-code-deprecated-code" target="_blank" rel="noreferrer">CancelToken</a>, so, you can use AbortController.
 
 In general, `AbortController` is useful in any case where it is necessary to cancel a network request at a specific point in time to improve the user experience and avoid unnecessary operations.

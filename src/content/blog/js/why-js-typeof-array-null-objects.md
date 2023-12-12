@@ -33,7 +33,7 @@ Based on this table, several questions already arise if you are a beginner in Ja
 
 It is a historical quirk that the typeof operator returns `"object"` for them. This is because the binary representation of null in JavaScript is all zeros, which is the same as the binary representation of an empty object. As a result, when the typeof operator is applied to a null value, it mistakenly returns `"object"`.
 
-And a better explanation of this, was written by <a class="hover:no-underline text-blue underline" href="https://2ality.com/2013/10/typeof-null.html" target="_blank" rel="noopener noreferrer">**Dr. Axel Rauschmayer**</a>:
+And a better explanation of this, was written by <a class="hover:no-underline text-blue underline" href="https://2ality.com/2013/10/typeof-null.html" target="_blank" rel="noreferrer">**Dr. Axel Rauschmayer**</a>:
 
 > The “typeof null” bug is a remnant from the first version of JavaScript. In this version, values were stored in 32 bit units, which consisted of a small type tag (1–3 bits) and the actual data of the value. The type tags were stored in the lower bits of the units. There were five of them:
 > - 000: object. The data is a reference to an object.

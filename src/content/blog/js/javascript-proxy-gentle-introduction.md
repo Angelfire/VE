@@ -75,6 +75,6 @@ arrProxy.push('42'); // Uncaught TypeError: The array only accepts numbers
 arrProxy[32]; // Uncaught TypeError: The array only accepts numbers
 ```
 
-I just started exploring this incredible feature, but if you want to read a post from someone with more experience, I highly recommend this post: <a class="hover:no-underline text-blue underline" href="https://blog.bitsrc.io/a-practical-guide-to-es6-proxy-229079c3c2f0/" target="_blank" rel="noopener noreferrer">A practical guide to Javascript Proxy</a> from Thomas Barrasso. In his post you can find more than half a dozen interesting examples.
+I just started exploring this incredible feature, but if you want to read a post from someone with more experience, I highly recommend this post: <a class="hover:no-underline text-blue underline" href="https://blog.bitsrc.io/a-practical-guide-to-es6-proxy-229079c3c2f0/" target="_blank" rel="noreferrer">A practical guide to Javascript Proxy</a> from Thomas Barrasso. In his post you can find more than half a dozen interesting examples.
 
-And of course, a gentle introduction from <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener noreferrer">MDN web docs</a>
+And of course, a gentle introduction from <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noreferrer">MDN web docs</a>

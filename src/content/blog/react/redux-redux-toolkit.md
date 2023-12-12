@@ -109,4 +109,4 @@ According to the theory, RTK includes utilities that help simplify many common u
 
 I'll have to give it a try, redux always seemed tremendously complex to me.
 
-The official documentation can be found here: <a class="hover:no-underline text-blue underline" href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">Redux Toolkit</a>.
+The official documentation can be found here: <a class="hover:no-underline text-blue underline" href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">Redux Toolkit</a>.

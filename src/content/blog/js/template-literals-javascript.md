@@ -9,7 +9,7 @@ tags: ["JavaScript"]
 
 At the most recent Next.js Conf the Vercel team did a short demo about Server Actions, people literally went crazy, they started comparing React with PHP, talking about how insecure this could be, in the end, the only truth is that completely misses everything that we were once taught about the separation of concerns.
 
-This is what a <a class="hover:no-underline text-blue underline" href="https://react.dev/reference/react/use-server" target="_blank" rel="noopener noreferrer">Server Actions</a> looks like, which first of all, is not something that Vercel is introducing in Next.js, it is something that the React team is working on but is in a very early stage of development.
+This is what a <a class="hover:no-underline text-blue underline" href="https://react.dev/reference/react/use-server" target="_blank" rel="noreferrer">Server Actions</a> looks like, which first of all, is not something that Vercel is introducing in Next.js, it is something that the React team is working on but is in a very early stage of development.
 
 ```jsx
 import { sql } from "@vercel/postgress"

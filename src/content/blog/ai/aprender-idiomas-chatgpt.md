@@ -11,7 +11,7 @@ ChatGPT puede ser una gran herramienta para aprender idiomas, y no, no se trata 
 
 Los límites literalmente están en tu mente, porque las posibilidades son casi infinitas...
 
-Por otro lado y como lo mencioné en una publicación anterior, en ChatGPT la manera en cómo escribes tus prompts es muy importante. En este artículo puede leer un poco <a class="hover:no-underline text-blue underline" href="https://velocidadescape.com/ai/art-writing-first-prompt-openai/" target="_blank" rel="noopener noreferrer">cómo escribir prompts de la manera correcta</a>.
+Por otro lado y como lo mencioné en una publicación anterior, en ChatGPT la manera en cómo escribes tus prompts es muy importante. En este artículo puede leer un poco <a class="hover:no-underline text-blue underline" href="https://velocidadescape.com/ai/art-writing-first-prompt-openai/" target="_blank" rel="noreferrer">cómo escribir prompts de la manera correcta</a>.
 
 Estas son algunas de las maneras que puedes usar ChatGPT para aprender un idioma:
 
@@ -49,4 +49,4 @@ Puedes hacerle preguntas sobre la gramática y el vocabulario del idioma que est
  
 _Es importante recordar que aunque ChatGPT está entrenado en muchos idiomas, puede haber errores o limitaciones en su conocimiento de algunos idiomas menos conocidos o menos utilizados. Por lo tanto, es importante complementar tu aprendizaje con otras fuentes y materiales didácticos._
 
-La inspiración para este post fue _Xavier Mitjana_ y su video en Youtube <a class="hover:no-underline text-blue underline" href="https://www.youtube.com/watch?v=FTp7xo_WefM" target="_blank" rel="noopener noreferrer">Cómo APRENDER IDIOMAS con Inteligencia Artificial GRATIS 🚀 Tutorial ChatGPT</a>
+La inspiración para este post fue _Xavier Mitjana_ y su video en Youtube <a class="hover:no-underline text-blue underline" href="https://www.youtube.com/watch?v=FTp7xo_WefM" target="_blank" rel="noreferrer">Cómo APRENDER IDIOMAS con Inteligencia Artificial GRATIS 🚀 Tutorial ChatGPT</a>
