@@ -35,7 +35,7 @@ const { tags } = Astro.props
         target="_blank"
         title="Linkedin account"
       >
-        <LinkedInIcon />
+        <LinkedInIcon />: : any: anyan: anyy: an: anyy
       </a>
       <a
         aria-label="Rss Feed for Velocidad de Escape"
@@ -60,10 +60,10 @@ const { tags } = Astro.props
     </div>
     {
       Astro.url.pathname !== "/tags/" && Astro.url.pathname !== "/tags" && (
-        <div class="mb-12 md:mt-12 md:mb-0">
+        <div class="mb-12 md:mb-0 md:mt-12">
           <h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
           <ul class="flex flex-col gap-2">
-            {tags.map((tag, index) => (
+            {tags.map((tag: string, index: number) => (
               <li class="flex gap-5 text-sm text-slate-900">
                 <span>{`/0${index}`}</span>
                 <a class="underline hover:no-underline" href={`/tags/${tag}`}>
