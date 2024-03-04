@@ -23,7 +23,7 @@ If you want to generate a "random" number using a computer and JavaScript, you c
 0.3802321554535415
 ```
 
-JavaScript always uses the same algorithm with the same seeds. The algorithm follows every time the same pattern to generate those numbers. And then you could think, could you guess the next random number? My answer is: No. The pattern is complex enough to identify it. So, that's why we usually call them: *Pseudo-random* numbers.
+JavaScript always uses the same algorithm with the same seeds. The algorithm follows every time the same pattern to generate those numbers. And then you could think, could you guess the next random number? My answer is: No. The pattern is complex enough to identify it. So, that's why we usually call them: _Pseudo-random_ numbers.
 
 How can we generate true random numbers? using **quantum mechanics**. How? make measurements on something that behaves randomly and from there we can extract random numbers.
 
@@ -37,6 +37,5 @@ This is only a brief introduction and gentle, the topic is much more complex tha
 
 Read more:
 
-<a class="hover:no-underline text-blue underline" href="https://engineering.mit.edu/engage/ask-an-engineer/can-a-computer-generate-a-truly-random-number/" target="_blank" rel="noreferrer">Can a computer generate a truly random number?</a>
-
-<a class="hover:no-underline text-blue underline" href="https://www.euronews.com/2019/07/29/what-is-a-random-number-and-why-is-it-so-difficult-to-generate-them" target="_blank" rel="noreferrer">What is a random number and why is it so difficult to generate them?</a>
+- <a class="hover:no-underline text-blue underline" href="https://engineering.mit.edu/engage/ask-an-engineer/can-a-computer-generate-a-truly-random-number/" target="_blank" rel="noreferrer">Can a computer generate a truly random number?</a>
+- <a class="hover:no-underline text-blue underline" href="https://www.euronews.com/2019/07/29/what-is-a-random-number-and-why-is-it-so-difficult-to-generate-them" target="_blank" rel="noreferrer">What is a random number and why is it so difficult to generate them?</a>
