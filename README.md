@@ -1,6 +1,6 @@
 # Velocidad de Escape
 
-Astro v3
+Astro v4.\*
 
 ## 🧞 Commands
 
