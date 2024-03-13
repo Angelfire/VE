@@ -62,11 +62,11 @@ const { tags } = Astro.props
       Astro.url.pathname !== "/tags/" && Astro.url.pathname !== "/tags" && (
         <div class="mb-12 md:mb-0 md:mt-12">
           <h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
-          <ul class="flex flex-col gap-2">
+          <ul class="flex flex-col gap-1">
             {tags.map((tag: string, index: number) => (
-              <li class="flex gap-5 text-sm text-slate-900">
+              <li class="flex items-center gap-5 text-sm text-slate-900">
                 <span>{`/0${index}`}</span>
-                <a class="underline hover:no-underline" href={`/tags/${tag}`}>
+                <a class="min-w-24 p-1 underline hover:no-underline" href={`/tags/${tag}`}>
                   {`#${tag}`}
                 </a>
               </li>
