@@ -1,22 +1,23 @@
 ---
-import BaseHead from "@/components/BaseHead.astro"
+import Metadata from "@/components/Metadata.astro"
 import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
 
-import { ViewTransitions } from 'astro:transitions'
+import { ViewTransitions } from "astro:transitions"
 
 interface Props {
   title: string
   description: string
+  slug?: string
 }
 
-const { title, description } = Astro.props
+const { description, slug, title } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <Metadata title={title} description={description} slug={slug} />
     <ViewTransitions />
   </head>
   <body>
