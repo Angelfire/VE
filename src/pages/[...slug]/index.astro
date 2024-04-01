@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content"
 
-import { getCollection } from 'astro:content'
+import { getCollection } from "astro:content"
 
 import BlogPost from "@/layouts/BlogPost.astro"
 
@@ -20,11 +20,12 @@ const post = Astro.props
 
 const {
   data: { title, description, pubDate },
+  slug,
 } = post
 
 const { Content } = await post.render()
 ---
 
-<BlogPost description={description} pubDate={pubDate} title={title}>
+<BlogPost description={description} pubDate={pubDate} title={title} slug={slug}>
   <Content />
 </BlogPost>

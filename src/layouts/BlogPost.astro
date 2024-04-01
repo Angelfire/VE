@@ -10,9 +10,10 @@ interface Props {
   description: string
   title: string
   pubDate: Date
+  slug?: string
 }
 
-const { description, title, pubDate } = Astro.props
+const { description, pubDate, slug, title } = Astro.props
 ---
 
 <script>
@@ -34,7 +35,7 @@ const { description, title, pubDate } = Astro.props
   })
 </script>
 
-<BlogLayout title={title} description={description}>
+<BlogLayout title={title} description={description} slug={slug}>
   <article
     class="container mx-auto max-w-screen-lg px-4 md:px-0"
     itemscope
