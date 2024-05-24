@@ -40,7 +40,6 @@ const { page, uniqueTags } = Astro.props
             page.data.map(({ slug, body, data: { title, pubDate, tags } }) => {
               return (
                 <article class="mb-12">
-                  <p>{slug}</p>
                   <header class="mb-4 flex items-end gap-6 border-b border-dashed border-slate-900 pb-1">
                     <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}>
                       /{getFormattedDate({ date: pubDate })}
