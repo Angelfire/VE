@@ -59,7 +59,7 @@ const showHeadings = (headings?.length ?? 0) > 0
       itemscope
       itemtype="http://schema.org/Article"
     >
-      <header class="mb-8">
+      <header class="mb-8" id="header">
         <h1
           class="font-header border-b border-slate-300 pb-2 text-3xl font-extrabold text-slate-900 md:text-4xl"
           itemprop="headline"
@@ -88,14 +88,13 @@ const showHeadings = (headings?.length ?? 0) > 0
       </div>
       <Me />
     </article>
+    <button
+      id="topHeader"
+      class="fixed bottom-20 right-4 z-50 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
+      aria-label="Back to Top"
+      data-show="false"
+    >
+      <Airplane />
+    </button>
   </div>
-
-  <button
-    id="topHeader"
-    class="z-90 fixed bottom-20 right-4 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-blue-500 text-3xl text-white opacity-0 transition-all duration-300 hover:border-blue-700 hover:bg-blue-600 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
-    aria-label="Back to Top"
-    data-show="false"
-  >
-    <Airplane />
-  </button>
 </BlogLayout>
