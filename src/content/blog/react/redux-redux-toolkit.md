@@ -15,7 +15,7 @@ I decided to create my project using _Create React App_ using the Redux-TypeScri
 
 I had to start reading the official documentation again, luckily I came across a great example that I decided to save here.
 
-**Redux**
+## Redux
 
 ```js
 import { createStore } from "redux"
@@ -63,7 +63,7 @@ store.dispatch({ type: "counter/decremented" })
 // {value: 1}
 ```
 
-**Redux Toolkit**
+## Redux Toolkit
 
 ```js
 import { createSlice, configureStore } from "@reduxjs/toolkit"

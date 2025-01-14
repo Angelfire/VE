@@ -13,7 +13,7 @@ The main reason for the existence of the switch statement was to avoid if-else s
 
 Sometimes we have more than 1 comparison to do, since there could be many cases to evaluate, and at this point these statements become something tremendously verbose.
 
-**Using if-else**
+## Using if-else
 
 ```js
 function rating(rating) {
@@ -31,7 +31,7 @@ function rating(rating) {
 }
 ```
 
-**Using switch**
+## Using switch
 
 ```js
 function rating(rating) {
@@ -57,7 +57,7 @@ function rating(rating) {
 
 _Just a friendy reminder: when switch contained all value, the default case will never execute. So in this case, it is not necessary._
 
-**Using Object Structure notation**
+## Using Object Structure notation
 
 ```js
 const rating = {

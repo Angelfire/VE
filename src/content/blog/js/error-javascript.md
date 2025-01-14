@@ -27,30 +27,47 @@ if (typeof addEllipsis !== "boolean") {
 
 So as a personal note I'm going to post all the built-in error objects that JavaScript has so I know when to use them.
 
-- `Error`: This is the generic error object in JavaScript. It is used to represent any type of error that is not covered by the other error objects. This object includes a "message" property that specifies an error message.
-    ```js
+## Error
+
+This is the generic error object in JavaScript. It is used to represent any type of error that is not covered by the other error objects. This object includes a "message" property that specifies an error message.
+`js
     throw new Error("This is a generic error")
-    ```
-- `SyntaxError`: This is used when there is a syntax error in the JavaScript code. This object includes a "message" property that specifies an error message.
-    ```js
+    `
+
+## SyntaxError
+
+This is used when there is a syntax error in the JavaScript code. This object includes a "message" property that specifies an error message.
+`js
     throw new SyntaxError("This is a syntax error")
-    ```
-- `TypeError`: This is used when a type error occurs, such as attempting to call a function on an object that is not a function. This object includes a "message" property that specifies an error message.
-    ```js
+    `
+
+## TypeError
+
+This is used when a type error occurs, such as attempting to call a function on an object that is not a function. This object includes a "message" property that specifies an error message.
+`js
     throw new TypeError("This is a type error")
-    ```
-- `RangeError`: This is used when a range error occurs, such as attempting to create an array with a negative number of elements. This object includes a "message" property that specifies an error message.
-    ```js
+    `
+
+## RangeError
+
+This is used when a range error occurs, such as attempting to create an array with a negative number of elements. This object includes a "message" property that specifies an error message.
+`js
     throw new RangeError("This is a range error")
-    ```
-- `ReferenceError`: This is used when attempting to access a variable that is not defined. This object includes a "message" property that specifies an error message.
-    ```js
+    `
+
+## ReferenceError
+
+This is used when attempting to access a variable that is not defined. This object includes a "message" property that specifies an error message.
+`js
     throw new ReferenceError("This variable is not defined")
-    ```
-- `URIError`: This is used when an error occurs in a URI, such as attempting to decode an invalid URI. This object includes a "message" property that specifies an error message.
-    ```js
+    `
+
+## URIError
+
+This is used when an error occurs in a URI, such as attempting to decode an invalid URI. This object includes a "message" property that specifies an error message.
+`js
     throw new URIError("This is an invalid URI")
-    ```
+    `
 
 You can find more informacion in <a class="hover:no-underline text-blue underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" target="_blank" rel="noreferrer">MDN Error</a>.
 
@@ -66,6 +83,7 @@ class TriangleError extends Error {
 ```
 
 Then:
+
 ```js
 function calculateTriangleArea(base, height) {
   if (isNaN(base) || isNaN(height) || base <= 0 || height <= 0) {

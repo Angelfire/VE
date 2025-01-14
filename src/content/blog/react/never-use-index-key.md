@@ -52,7 +52,7 @@ const FruitList = () => {
 }
 ```
 
-## Correct
+### Correct
 
 This is correct because every single value is unique, so, don't be afraid of using values as keys.
 

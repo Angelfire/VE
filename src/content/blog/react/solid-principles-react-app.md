@@ -9,10 +9,11 @@ tags: ["React"]
 
 SOLID is an acronym that represents a set of five design principles for writing maintainable and scalable software. These principles were introduced by Robert C. Martin and have become fundamental concepts in object-oriented programming. While React is primarily a library for building user interfaces and doesn't directly map to classical object-oriented programming, you can still apply SOLID principles in a React context, especially when using functional components and hooks. Here's a brief overview of each SOLID principle along with examples in a React context:
 
-1. **Single Responsibility Principle (SRP)**:
+## Single Responsibility Principle (SRP)
+
 SRP states that a class (or in our case, a functional component) should have only one reason to change. In React, this translates to each component having a single responsibility.
 
-Before SRP:
+### Before SRP
 ```jsx
 // UserList component with mixed responsibilities
 const UserList = () => {
@@ -35,7 +36,7 @@ const UserList = () => {
 };
 ```
 
-After SRP:
+### After SRP
 ```jsx
 // UserList component with a single responsibility
 const UserList = ({ users }) => {
@@ -62,10 +63,10 @@ const UserFetching = () => {
 };
 ```
 
-2. **Open/Closed Principle (OCP)**:
+## Open/Closed Principle (OCP)
 OCP states that software entities (components in React) should be open for extension but closed for modification. In the React context, this means you should be able to add new features or behaviors without changing existing code.
 
-Before OCP:
+### Before OCP
 ```jsx
 // Button component with conditional rendering
 const Button = ({ isPrimary }) => {
@@ -77,7 +78,7 @@ const Button = ({ isPrimary }) => {
 };
 ```
 
-After OCP:
+### After OCP
 ```jsx
 // Button component with extension
 const Button = ({ children }) => {
@@ -90,10 +91,10 @@ const PrimaryButton = ({ children }) => {
 };
 ```
 
-3. **Liskov Substitution Principle (LSP)**:
+## Liskov Substitution Principle (LSP)
 LSP states that objects of a subclass (or in React, child components) should be able to replace objects of the parent class (or parent component) without affecting the correctness of the program.
 
-Before LSP:
+### Before LSP
 ```jsx
 // Parent component expecting any child component
 const Parent = ({ childComponent }) => {
@@ -101,7 +102,7 @@ const Parent = ({ childComponent }) => {
 };
 ```
 
-After LSP:
+### After LSP
 ```jsx
 // Parent component that specifies a prop interface
 const Parent = ({ children }) => {
@@ -113,10 +114,10 @@ const Child1 = () => <div>Child 1</div>;
 const Child2 = () => <div>Child 2</div>;
 ```
 
-4. **Interface Segregation Principle (ISP)**:
+## Interface Segregation Principle (ISP)
 ISP states that clients should not be forced to depend on interfaces they do not use. In React, this translates to components having small, focused APIs.
 
-Before ISP:
+### Before ISP
 ```jsx
 // UserCard with a monolithic interface
 const UserCard = ({ user, onClick, onEdit, onDelete }) => {
@@ -131,7 +132,7 @@ const UserCard = ({ user, onClick, onEdit, onDelete }) => {
 };
 ```
 
-After ISP:
+### After ISP
 ```jsx
 // Smaller components with focused interfaces
 const UserAvatar = ({ user }) => {
@@ -148,10 +149,10 @@ const UserActions = ({ onEdit, onDelete }) => {
 };
 ```
 
-5. **Dependency Inversion Principle (DIP)**:
+## Dependency Inversion Principle (DIP)
 DIP states that high-level modules (components) should not depend on low-level modules (components); both should depend on abstractions (interfaces or props).
 
-Before DIP:
+### Before DIP
 ```jsx
 // UserList directly importing UserService
 import UserService from './UserService';
@@ -175,7 +176,7 @@ const UserList = () => {
 };
 ```
 
-After DIP:
+### After DIP
 ```jsx
 // UserList receiving a user list as a prop
 const UserList = ({ users }) => {
