@@ -5,15 +5,23 @@ import Airplane from "@/components/icons/Airplane.astro"
 import Me from "@/components/Me.astro"
 
 import { getFormattedDate } from "@/lib"
+import BlogContent from "@/components/BlogContent.astro"
+
+interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
 
 interface Props {
   description: string
+  headings?: Heading[]
   title: string
   pubDate: Date
   slug?: string
 }
 
-const { description, pubDate, slug, title } = Astro.props
+const { description, pubDate, slug, title, headings } = Astro.props
 ---
 
 <script>
@@ -36,31 +44,45 @@ const { description, pubDate, slug, title } = Astro.props
 </script>
 
 <BlogLayout title={title} description={description} slug={slug}>
-  <article
-    class="container mx-auto max-w-screen-lg px-4 md:px-0"
-    itemscope
-    itemtype="http://schema.org/Article"
-  >
-    <header class="mb-8" id="header">
-      <h1 class="font-header border-b border-slate-300 pb-2 text-3xl font-bold" itemprop="headline">
-        {title}
-      </h1>
-      <div class="flex justify-between pt-2">
-        <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}
-          >{getFormattedDate({ date: pubDate })}</time
-        >
-      </div>
-    </header>
-    <div
-      class="a:hover:no-underline prose max-w-screen-lg prose-h2:mt-1 prose-a:text-blue-500 prose-a:underline prose-blockquote:mx-9 prose-blockquote:bg-gray-100 prose-blockquote:pr-4 prose-blockquote:font-normal prose-code:rounded prose-code:p-1 prose-code:font-mono prose-code:font-light prose-code:text-blue-500 prose-pre:text-xs"
+  <div class="relative mx-auto flex max-w-screen-lg px-4 md:px-0">
+    <aside
+      class="sticky top-24 hidden h-fit w-60 self-start border-r border-slate-300 p-4 text-sm leading-6 md:block"
     >
-      <slot />
-    </div>
-    <Me />
-  </article>
+      <BlogContent headings={headings as Heading[]} />
+    </aside>
+
+    <article class="mx-auto max-w-2xl flex-1 px-6" itemscope itemtype="http://schema.org/Article">
+      <header class="mb-8" id="header">
+        <h1
+          class="font-header border-b border-slate-300 pb-2 text-4xl font-extrabold text-slate-900"
+          itemprop="headline"
+        >
+          {title}
+        </h1>
+
+        <div class="flex justify-between pt-2 text-slate-600">
+          <time class="font-text pb-1 text-sm" datetime={pubDate.toDateString()}
+            >{getFormattedDate({ date: pubDate })}</time
+          >
+        </div>
+      </header>
+
+      <div class="mb-8 block rounded-lg border border-slate-300 bg-slate-100 p-4 md:hidden">
+        <BlogContent headings={headings as Heading[]} />
+      </div>
+
+      <div
+        class="prose max-w-none prose-headings:scroll-mt-24 prose-h2:mt-1 prose-a:text-blue-600 prose-a:hover:underline prose-blockquote:mx-9 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-100 prose-blockquote:pl-4 prose-code:rounded prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:font-medium prose-code:text-blue-600 prose-pre:text-sm"
+      >
+        <slot />
+      </div>
+      <Me />
+    </article>
+  </div>
+
   <button
     id="topHeader"
-    class="z-90 fixed bottom-20 right-4 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
+    class="z-90 fixed bottom-20 right-4 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-blue-500 text-3xl text-white opacity-0 transition-all duration-300 hover:border-blue-700 hover:bg-blue-600 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
     aria-label="Back to Top"
     data-show="false"
   >

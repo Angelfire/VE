@@ -7,6 +7,12 @@ import BlogPost from "@/layouts/BlogPost.astro"
 
 type Props = CollectionEntry<"blog">
 
+interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
+
 export async function getStaticPaths() {
   const posts = await getCollection("blog")
 
@@ -21,11 +27,15 @@ const post = Astro.props
 const {
   data: { title, description, pubDate },
   slug,
+  rendered,
 } = post
+
+// Validación para asegurar que headings es un array de objetos con la forma esperada
+const headings = Array.isArray(rendered?.metadata?.headings) ? rendered.metadata.headings : []
 
 const { Content } = await post.render()
 ---
 
-<BlogPost description={description} pubDate={pubDate} title={title} slug={slug}>
+<BlogPost description={description} pubDate={pubDate} title={title} slug={slug} headings={headings}>
   <Content />
 </BlogPost>
