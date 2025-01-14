@@ -1,7 +1,7 @@
 import { ImageResponse } from '@vercel/og';
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 import { getCollection, type CollectionEntry } from 'astro:content';
 
