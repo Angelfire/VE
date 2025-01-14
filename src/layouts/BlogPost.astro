@@ -45,56 +45,49 @@ const showHeadings = (headings?.length ?? 0) > 0
 </script>
 
 <BlogLayout title={title} description={description} slug={slug}>
-  <div class="relative mx-auto w-full max-w-screen-lg">
-    <div class="flex flex-col md:flex-row">
+  <div class="relative mx-auto flex w-full max-w-screen-lg">
+    {
+      showHeadings && (
+        <aside class="sticky top-24 hidden h-fit w-52 border-r border-slate-300 p-4 text-sm leading-6 md:block">
+          <BlogContent headings={headings as Heading[]} />
+        </aside>
+      )
+    }
+
+    <article
+      class="container mx-auto max-w-screen-lg px-4 md:px-0 md:pl-8"
+      itemscope
+      itemtype="http://schema.org/Article"
+    >
+      <header class="mb-8">
+        <h1
+          class="font-header border-b border-slate-300 pb-2 text-3xl font-extrabold text-slate-900 md:text-4xl"
+          itemprop="headline"
+        >
+          {title}
+        </h1>
+        <div class="flex justify-between pt-2 text-slate-600">
+          <time class="font-text pb-1 text-sm" datetime={pubDate.toDateString()}>
+            {getFormattedDate({ date: pubDate })}
+          </time>
+        </div>
+      </header>
+
       {
         showHeadings && (
-          <aside class="sticky top-24 hidden h-fit w-60 self-start border-r border-slate-300 p-4 text-sm leading-6 md:block">
+          <div class="mb-8 block rounded-lg border border-slate-300 bg-slate-100 p-4 md:hidden">
             <BlogContent headings={headings as Heading[]} />
-          </aside>
+          </div>
         )
       }
 
-      <article
-        class:list={[
-          "flex-1 px-4 md:px-6",
-          "mx-auto md:mx-0",
-          { "md:mx-auto md:max-w-2xl": !showHeadings },
-        ]}
-        itemscope
-        itemtype="http://schema.org/Article"
+      <div
+        class="prose max-w-none prose-headings:scroll-mt-24 prose-h2:mt-1 prose-a:text-blue-600 prose-a:hover:underline prose-blockquote:mx-4 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-100 prose-blockquote:pl-4 prose-code:rounded prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:font-medium prose-code:text-blue-600 prose-pre:text-sm md:prose-blockquote:mx-9"
       >
-        <header class="mb-8" id="header">
-          <h1
-            class="font-header border-b border-slate-300 pb-2 text-3xl font-extrabold text-slate-900 md:text-4xl"
-            itemprop="headline"
-          >
-            {title}
-          </h1>
-
-          <div class="flex justify-between pt-2 text-slate-600">
-            <time class="font-text pb-1 text-sm" datetime={pubDate.toDateString()}>
-              {getFormattedDate({ date: pubDate })}
-            </time>
-          </div>
-        </header>
-
-        {
-          showHeadings && (
-            <div class="mb-8 block rounded-lg border border-slate-300 bg-slate-100 p-4 md:hidden">
-              <BlogContent headings={headings as Heading[]} />
-            </div>
-          )
-        }
-
-        <div
-          class="prose max-w-none prose-headings:scroll-mt-24 prose-h2:mt-1 prose-a:text-blue-600 prose-a:hover:underline prose-blockquote:mx-4 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-100 prose-blockquote:pl-4 prose-code:rounded prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:font-medium prose-code:text-blue-600 prose-pre:text-sm md:prose-blockquote:mx-9"
-        >
-          <slot />
-        </div>
-        <Me />
-      </article>
-    </div>
+        <slot />
+      </div>
+      <Me />
+    </article>
   </div>
 
   <button
