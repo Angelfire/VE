@@ -14,4 +14,9 @@ export default defineConfig({
       wrap: true,
     },
   },
+  experimental: {
+    svg: {
+      mode: "sprite",
+    },
+  },
 })
