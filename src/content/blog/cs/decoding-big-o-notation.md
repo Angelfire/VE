@@ -104,7 +104,7 @@ function addUpTo(n) {
 - Getting the value of a variable.
 - Adding two numbers.
 
-### O(log n) - Logarithmic Time:
+### O(log n) - Logarithmic Time
 
 ```js
 function binarySearch(list, item) {
@@ -133,7 +133,7 @@ function binarySearch(list, item) {
 - Finding intersections of sorted arrays.
 - String matching algorithms.
 
-### O(n) - Linear Time:
+### O(n) - Linear Time
 
 ```js
 function countPeople(room) {
@@ -151,7 +151,7 @@ function countPeople(room) {
 - Searching for an item in a large list (e.g., a list of 1000 items) using a for loop.
 - Counting the number of words in a sentence.
 
-### O(n log n) - Linearithmic Time:
+### O(n log n) - Linearithmic Time
 
 ```js
 function quicksort(array) {
@@ -168,7 +168,7 @@ function quicksort(array) {
 - Finding the median of two sorted arrays.
 - Finding all pairs in two sorted arrays that sum to a specific value.
 
-### O(n^2) - Quadratic Time:
+### O(n^2) - Quadratic Time
 
 ```js
 function bubbleSort(array) {
@@ -214,7 +214,7 @@ function cubicOperation(array) {
 - Computing the cube of the sum of the first n natural numbers (involves nested loops for summation and cubing).
 - Multiplying two square matrices using the naive matrix multiplication algorithm (involves nested loops for row and column iterations).
 
-### O(2^n) - Exponential Time:
+### O(2^n) - Exponential Time
 
 ```js
 function fibonacci(n) {
@@ -227,7 +227,7 @@ function fibonacci(n) {
 - Generating all binary strings of length n
 - Solving the knapsack problem (decision version)
 
-### O(n!) - Factorial Time:
+### O(n!) - Factorial Time
 
 ```js
 function factorial(n) {
