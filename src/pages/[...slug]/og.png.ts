@@ -126,13 +126,13 @@ export async function GET({ props }: Props) {
     fonts: [
       {
         name: 'Inter',
-        data: Buffer.from(InterRegular),
+        data: InterRegular,
         style: 'normal',
         weight: 700,
       },
       {
         name: 'Inter',
-        data: Buffer.from(InterBold),
+        data: InterBold,
         style: 'normal',
         weight: 400,
       },
