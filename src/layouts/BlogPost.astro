@@ -103,63 +103,7 @@ const showHeadings = (headings?.length ?? 0) > 0
     })
   }
 
-  function attachCopyButtons(): void {
-    const copyButtonLabel = "Copy"
-    const codeBlocks: HTMLPreElement[] = Array.from(document.querySelectorAll("pre"))
-
-    for (const codeBlock of codeBlocks) {
-      const wrapper = document.createElement("div")
-      wrapper.className = "relative"
-
-      const copyButton = document.createElement("button")
-      copyButton.className =
-        "copy-code absolute right-3 -top-3 rounded bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium"
-      copyButton.innerHTML = copyButtonLabel
-
-      // Ensure code block has a tabindex
-      codeBlock.setAttribute("tabindex", "0")
-
-      // Add button to code block
-      codeBlock.appendChild(copyButton)
-
-      // Insert code block in relative container
-      codeBlock.parentNode?.insertBefore(wrapper, codeBlock)
-      wrapper.appendChild(codeBlock)
-
-      // Copy event
-      copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton)
-      })
-    }
-
-    async function copyCode(block: HTMLPreElement, button: HTMLButtonElement): Promise<void> {
-      const code = block.querySelector("code")
-
-      if (!code) {
-        console.error("No code element found")
-        return
-      }
-
-      const text = code.innerText
-
-      try {
-        await navigator.clipboard.writeText(text)
-
-        button.innerText = "Copied..."
-        setTimeout(() => {
-          button.innerText = copyButtonLabel
-        }, 900)
-      } catch (err) {
-        button.innerText = "Failed to Copy"
-        setTimeout(() => {
-          button.innerText = copyButtonLabel
-        }, 900)
-      }
-    }
-  }
-
   function loadScripts() {
-    attachCopyButtons()
     setupScrollButton()
   }
 
