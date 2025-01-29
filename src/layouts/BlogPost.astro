@@ -145,13 +145,11 @@ const showHeadings = (headings?.length ?? 0) > 0
       try {
         await navigator.clipboard.writeText(text)
 
-        // Visual feedback
         button.innerText = "Copied..."
         setTimeout(() => {
           button.innerText = copyButtonLabel
         }, 900)
       } catch (err) {
-        console.error("Error copying to clipboard:", err)
         button.innerText = "Failed to Copy"
         setTimeout(() => {
           button.innerText = copyButtonLabel
