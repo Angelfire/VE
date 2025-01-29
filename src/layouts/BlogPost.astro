@@ -103,6 +103,61 @@ const showHeadings = (headings?.length ?? 0) > 0
     })
   }
 
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy"
+    const codeBlocks = Array.from(document.querySelectorAll("pre"))
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div")
+      wrapper.className = "relative"
+
+      const copyButton = document.createElement("button")
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium"
+      copyButton.innerHTML = copyButtonLabel
+
+      // Asegúrate de que el bloque de código tenga un tabindex
+      codeBlock.setAttribute("tabindex", "0")
+
+      // Agregar el botón al bloque de código
+      codeBlock.appendChild(copyButton)
+
+      // Insertar el bloque de código en un contenedor relativo
+      codeBlock.parentNode.insertBefore(wrapper, codeBlock)
+      wrapper.appendChild(codeBlock)
+
+      // Evento para copiar el código
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton)
+      })
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code")
+
+      const text = code.innerText
+
+      try {
+        await navigator.clipboard.writeText(text)
+
+        // Feedback visual al usuario
+        button.innerText = "Copied..."
+        setTimeout(() => {
+          button.innerText = copyButtonLabel
+        }, 900)
+      } catch (err) {
+        console.error("Error al copiar al portapapeles:", err)
+        button.innerText = "Failed to Copy"
+        setTimeout(() => {
+          button.innerText = copyButtonLabel
+        }, 900)
+      }
+    }
+  }
+
+  // Asegúrate de llamar a la función después de que el DOM esté completamente cargado
+  document.addEventListener("DOMContentLoaded", attachCopyButtons)
   document.addEventListener("astro:after-swap", setupScrollButton)
   document.addEventListener("DOMContentLoaded", setupScrollButton)
+  document.addEventListener("astro:after-swap", attachCopyButtons)
 </script>
