@@ -103,40 +103,6 @@ const showHeadings = (headings?.length ?? 0) > 0
     })
   }
 
-  function attachCopyButtons() {
-    const copyButtonLabel = "Copy"
-    const codeBlocks = document.querySelectorAll("pre")
-
-    codeBlocks.forEach(codeBlock => {
-      if (codeBlock.querySelector(".copy-button")) return // Evita duplicar botones
-
-      const wrapper = document.createElement("div")
-      wrapper.classList.add("relative")
-
-      const copyButton = document.createElement("button")
-      copyButton.className =
-        "copy-button cursor-pointer absolute right-3 top-3 rounded bg-gray-200 px-2 py-1 text-xs text-gray-800 transition hover:bg-gray-300"
-      copyButton.innerText = copyButtonLabel
-
-      codeBlock.style.position = "relative"
-      codeBlock.appendChild(copyButton)
-
-      copyButton.addEventListener("click", async () => {
-        const code = codeBlock.querySelector("code")?.innerText
-        if (code) {
-          await navigator.clipboard.writeText(code)
-          copyButton.innerText = "Copied!"
-          setTimeout(() => (copyButton.innerText = copyButtonLabel), 1000)
-        }
-      })
-    })
-  }
-
-  function initScripts() {
-    attachCopyButtons()
-    setupScrollButton()
-  }
-
-  document.addEventListener("astro:after-swap", initScripts)
-  document.addEventListener("DOMContentLoaded", initScripts)
+  document.addEventListener("astro:after-swap", setupScrollButton)
+  document.addEventListener("DOMContentLoaded", setupScrollButton)
 </script>
