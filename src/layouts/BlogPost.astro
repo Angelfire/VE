@@ -105,43 +105,43 @@ const showHeadings = (headings?.length ?? 0) > 0
 
   /** Attaches copy buttons to code blocks in the document,
    * allowing users to copy code easily. */
-  function attachCopyButtons() {
-    const copyButtonLabel = "Copy"
-    const codeBlocks = Array.from(document.querySelectorAll("pre"))
+  // function attachCopyButtons() {
+  //   const copyButtonLabel = "Copy"
+  //   const codeBlocks = Array.from(document.querySelectorAll("pre"))
 
-    for (const codeBlock of codeBlocks) {
-      const wrapper = document.createElement("div")
-      wrapper.className = "relative"
+  //   for (const codeBlock of codeBlocks) {
+  //     const wrapper = document.createElement("div")
+  //     wrapper.className = "relative"
 
-      const copyButton = document.createElement("button")
-      copyButton.className =
-        "copy-code absolute right-3 -top-3 rounded-sm bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium cursor-pointer"
-      copyButton.innerHTML = copyButtonLabel
+  //     const copyButton = document.createElement("button")
+  //     copyButton.className =
+  //       "copy-code absolute right-3 -top-3 rounded-sm bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium cursor-pointer"
+  //     copyButton.innerHTML = copyButtonLabel
 
-      // wrap codeblock with relative parent element
-      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock)
-      wrapper.appendChild(codeBlock)
-      wrapper.appendChild(copyButton)
+  //     // wrap codeblock with relative parent element
+  //     codeBlock?.parentNode?.insertBefore(wrapper, codeBlock)
+  //     wrapper.appendChild(codeBlock)
+  //     wrapper.appendChild(copyButton)
 
-      copyButton.addEventListener("click", async () => {
-        const code = codeBlock.querySelector("code")
-        const text = code?.innerText ?? ""
+  //     copyButton.addEventListener("click", async () => {
+  //       const code = codeBlock.querySelector("code")
+  //       const text = code?.innerText ?? ""
 
-        await navigator.clipboard.writeText(text)
+  //       await navigator.clipboard.writeText(text)
 
-        // visual feedback that task is completed
-        copyButton.innerHTML = "Copied!"
+  //       // visual feedback that task is completed
+  //       copyButton.innerHTML = "Copied!"
 
-        setTimeout(() => {
-          copyButton.innerHTML = copyButtonLabel
-        }, 900)
-      })
-    }
-  }
+  //       setTimeout(() => {
+  //         copyButton.innerHTML = copyButtonLabel
+  //       }, 900)
+  //     })
+  //   }
+  // }
 
   function initScripts() {
     setupScrollButton()
-    attachCopyButtons()
+    // attachCopyButtons()
   }
 
   document.addEventListener("astro:after-swap", initScripts)
