@@ -115,32 +115,27 @@ const showHeadings = (headings?.length ?? 0) > 0
 
       const copyButton = document.createElement("button")
       copyButton.className =
-        "copy-code cursor-pointer absolute right-3 -top-3 rounded-sm bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium"
+        "absolute right-3 top-3 rounded px-2 py-1 text-xs font-medium bg-slate-600 text-slate-100 hover:bg-slate-700 transition-colors duration-200 cursor-pointer"
       copyButton.innerHTML = copyButtonLabel
-      codeBlock.setAttribute("tabindex", "0")
-      codeBlock.appendChild(copyButton)
 
       // wrap codeblock with relative parent element
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock)
       wrapper.appendChild(codeBlock)
+      wrapper.appendChild(copyButton)
 
       copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton)
+        const code = codeBlock.querySelector("code")
+        const text = code?.innerText
+
+        await navigator.clipboard.writeText(text ?? "")
+
+        // visual feedback that task is completed
+        copyButton.innerHTML = "Copied!"
+
+        setTimeout(() => {
+          copyButton.innerHTML = copyButtonLabel
+        }, 900)
       })
-    }
-
-    async function copyCode(block: HTMLElement, button: HTMLButtonElement) {
-      const code = block.querySelector("code")
-      const text = code?.innerText
-
-      await navigator.clipboard.writeText(text ?? "")
-
-      // visual feedback that task is completed
-      button.innerText = "Copied..."
-
-      setTimeout(() => {
-        button.innerText = copyButtonLabel
-      }, 900)
     }
   }
 
