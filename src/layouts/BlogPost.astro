@@ -26,7 +26,7 @@ const showHeadings = (headings?.length ?? 0) > 0
 ---
 
 <BlogLayout title={title} description={description} slug={slug}>
-  <div class="relative mx-auto flex w-full max-w-screen-lg">
+  <div class="relative mx-auto flex w-full max-w-(--breakpoint-lg)">
     {
       showHeadings && (
         <aside class="sticky top-24 hidden h-fit w-52 border-r border-slate-300 p-4 text-sm leading-6 md:block">
@@ -36,7 +36,7 @@ const showHeadings = (headings?.length ?? 0) > 0
     }
 
     <article
-      class="container mx-auto max-w-screen-lg px-4 md:px-0 md:pl-8"
+      class="container mx-auto max-w-(--breakpoint-lg) px-4 md:px-0 md:pl-8"
       itemscope
       itemtype="http://schema.org/Article"
     >
@@ -63,7 +63,7 @@ const showHeadings = (headings?.length ?? 0) > 0
       }
 
       <div
-        class="prose max-w-none prose-headings:scroll-mt-24 prose-h2:mt-1 prose-a:text-blue-600 prose-a:hover:underline prose-blockquote:mx-4 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-100 prose-blockquote:pl-4 prose-code:rounded prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:font-medium prose-code:text-blue-600 prose-code:before:!content-none prose-code:after:!content-none prose-pre:text-sm md:prose-blockquote:mx-9"
+        class="prose prose-headings:scroll-mt-24 prose-h2:mt-1 prose-a:text-blue-600 hover:prose-a:underline prose-blockquote:mx-4 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-100 prose-blockquote:pl-4 prose-code:rounded-sm prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:font-medium prose-code:text-blue-600 prose-code:before:content-none! prose-code:after:content-none! prose-pre:text-sm md:prose-blockquote:mx-9 max-w-none"
       >
         <slot />
       </div>
@@ -71,7 +71,7 @@ const showHeadings = (headings?.length ?? 0) > 0
     </article>
     <button
       id="topHeader"
-      class="fixed bottom-20 right-4 z-50 hidden h-10 w-10 translate-y-28 rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
+      class="fixed right-4 bottom-20 z-50 hidden h-10 w-10 translate-y-28 cursor-pointer rounded-full border-2 border-transparent bg-slate-300 text-3xl opacity-0 transition-all duration-300 hover:border-slate-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12 md:flex md:items-center md:justify-center"
       aria-label="Back to Top"
       data-show="false"
     >
@@ -83,13 +83,17 @@ const showHeadings = (headings?.length ?? 0) > 0
   function setupScrollButton() {
     const scrollBtn = document.getElementById("topHeader") as HTMLButtonElement
     const targetHeader = document.getElementById("header") as HTMLDivElement
-    const observer = new IntersectionObserver(callback)
 
+    if (!scrollBtn || !targetHeader) {
+      return
+    }
+
+    const observer = new IntersectionObserver(callback)
     observer.observe(targetHeader)
 
     function callback(entries: IntersectionObserverEntry[]) {
       entries.forEach(entry => {
-        // only show the scroll to top button when the heading is out of view
+        // Solo mostrar el botón cuando el encabezado esté fuera de vista
         scrollBtn.dataset.show = (!entry.isIntersecting).toString()
       })
     }
@@ -111,7 +115,7 @@ const showHeadings = (headings?.length ?? 0) > 0
 
       const copyButton = document.createElement("button")
       copyButton.className =
-        "copy-code absolute right-3 -top-3 rounded bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium"
+        "copy-code cursor-pointer absolute right-3 -top-3 rounded-sm bg-slate-300 px-2 py-1 text-xs leading-4 text-slate-900 font-medium"
       copyButton.innerHTML = copyButtonLabel
       codeBlock.setAttribute("tabindex", "0")
       codeBlock.appendChild(copyButton)
@@ -140,7 +144,11 @@ const showHeadings = (headings?.length ?? 0) > 0
     }
   }
 
-  // Initialize
-  setupScrollButton()
-  attachCopyButtons()
+  function initScripts() {
+    setupScrollButton()
+    attachCopyButtons()
+  }
+
+  document.addEventListener("astro:after-swap", initScripts)
+  document.addEventListener("DOMContentLoaded", initScripts)
 </script>
