@@ -1,5 +1,5 @@
 ---
-title: "A handy tip for re-running CI/CD ipelines"
+title: "A handy tip for re-running CI/CD pipelines"
 pubDate: "2025-02-05"
 description: "When you need to re-run your CI/CD pipeline but have no code changes, this command creates an empty commit to trigger the build."
 author: "Andres Bedoya"
