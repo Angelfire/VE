@@ -33,7 +33,10 @@ const { page } = Astro.props
 const { tag } = Astro.params
 
 const posts = await getCollection("blog")
-const tags = getUniqueTags(posts)
+const shortPosts = await getCollection("short")
+
+const allPosts = [...posts, ...shortPosts]
+const tags = getUniqueTags(allPosts)
 ---
 
 <BlogLayout title={`Velocidad de Escape - Tag: ${tag}`} description={`Posts tagged with: ${tag}`}>

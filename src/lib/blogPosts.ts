@@ -1,14 +1,13 @@
-
-
 import type { CollectionEntry } from "astro:content"
 
-export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
+export function sortMDByDate(posts: CollectionEntry<"blog" | "short">[] = []) {
   return posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   )
 }
 
-export function getUniqueTags(posts: CollectionEntry<"blog">[] = []) {
+
+export function getUniqueTags(posts: CollectionEntry<"blog" | "short">[] = []) {
   const uniqueTags = new Set<string>()
 
   posts.forEach((post) => {
@@ -18,7 +17,7 @@ export function getUniqueTags(posts: CollectionEntry<"blog">[] = []) {
   return Array.from(uniqueTags)
 }
 
-export function getUniqueTagsWithCount(posts: CollectionEntry<"blog">[] = []): {
+export function getUniqueTagsWithCount(posts: CollectionEntry<"blog" | "short">[] = []): {
   [key: string]: number
 } {
   return posts.reduce((prev, post) => {
