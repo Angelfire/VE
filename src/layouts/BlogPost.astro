@@ -4,7 +4,7 @@ import BlogLayout from "@/layouts/BlogLayout.astro"
 import Airplane from "@/components/icons/airplane.svg"
 import Me from "@/components/Me.astro"
 
-import { getFormattedDate } from "@/lib"
+import { getFormattedDate } from "@/lib/formatDate"
 import BlogContent from "@/components/BlogContent.astro"
 
 interface Heading {
@@ -22,6 +22,8 @@ interface Props {
 }
 
 const { description, pubDate, slug, title, headings } = Astro.props
+
+const dateTime = new Date(pubDate).toISOString()
 const showHeadings = (headings?.length ?? 0) > 0
 ---
 
@@ -42,13 +44,13 @@ const showHeadings = (headings?.length ?? 0) > 0
     >
       <header class="mb-8" id="header">
         <h1
-          class="font-header border-b border-slate-300 pb-2 text-3xl font-extrabold text-slate-900 md:text-4xl"
+          class="border-b border-slate-300 pb-2 text-3xl font-extrabold text-slate-900 md:text-4xl"
           itemprop="headline"
         >
           {title}
         </h1>
         <div class="flex justify-between pt-2 text-slate-600">
-          <time class="font-text pb-1 text-sm" datetime={pubDate.toDateString()}>
+          <time class="font-text pb-1 text-sm" datetime={dateTime}>
             {getFormattedDate({ date: pubDate })}
           </time>
         </div>

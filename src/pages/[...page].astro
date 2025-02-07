@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content"
 import { getCollection } from "astro:content"
 
 interface Props {
-  page: Page<CollectionEntry<"blog" | "short">>
+  page: Page<CollectionEntry<"blog">>
   uniqueTags: string[]
 }
 
@@ -14,16 +14,14 @@ import Aside from "@/components/Aside.astro"
 import Pagination from "@/components/Pagination.astro"
 import PostExcerpt from "@/components/PostExcerpt.astro"
 
-import { getFormattedDate, getUniqueTags, sortMDByDate } from "@/lib"
+import { getUniqueTags, sortMDByDate } from "@/lib/blogPosts"
+import { getFormattedDate } from "@/lib/formatDate"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const blogPosts = await getCollection("blog")
-  const shortPosts = await getCollection("short")
+  const blog = await getCollection("blog")
 
-  const allPosts = [...blogPosts, ...shortPosts]
-
-  const sortedPosts = sortMDByDate(allPosts)
-  const uniqueTags = getUniqueTags(allPosts)
+  const sortedPosts = sortMDByDate(blog)
+  const uniqueTags = getUniqueTags(blog)
 
   return paginate(sortedPosts, { props: { uniqueTags }, pageSize: 4 })
 }
@@ -43,39 +41,18 @@ const { page, uniqueTags } = Astro.props
           {
             page.data.map(async post => {
               const {
-                slug,
                 body,
-                data: { title, pubDate, tags },
+                data: { slug, title, pubDate, tags },
               } = post
-              const isShort = "type" in post.data && post.data.type === "short"
-
-              if (isShort) {
-                const { Content } = await post.render()
-                return (
-                  <article class="mb-12 rounded-lg bg-slate-50 p-6 transition-all">
-                    <div class="mb-4 flex items-center justify-between">
-                      <span class="rounded bg-slate-200 px-2 py-1 text-xs text-slate-600">
-                        short note
-                      </span>
-                      <time class="text-xs text-slate-500" datetime={pubDate.toDateString()}>
-                        {getFormattedDate({ date: pubDate })}
-                      </time>
-                    </div>
-                    <h2 class="font-header mb-4 text-xl font-bold text-slate-800">{title}</h2>
-                    <div class="prose prose-slate prose-sm prose-headings:font-header prose-headings:text-slate-900 prose-p:text-slate-700 prose-a:text-blue-600 hover:prose-a:underline prose-code:rounded-sm prose-code:px-1 prose-code:text-blue-600 mb-4 max-w-none">
-                      <Content />
-                    </div>
-                  </article>
-                )
-              }
+              const dateTime = new Date(pubDate).toISOString()
 
               return (
                 <article class="mb-12">
                   <header class="mb-4 flex items-end gap-6 border-b border-dashed border-slate-900 pb-1">
-                    <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}>
+                    <time class="font-text pb-1 text-xs" datetime={dateTime}>
                       /{getFormattedDate({ date: pubDate })}
                     </time>
-                    <h2 class="font-header text-3xl font-bold text-slate-900">
+                    <h2 class="text-3xl font-bold text-slate-900">
                       <a href={`/${slug}`}>{title}</a>
                     </h2>
                   </header>
@@ -83,7 +60,7 @@ const { page, uniqueTags } = Astro.props
                     <PostExcerpt text={body} maxLength={600} />
                   </p>
                   <div class="flex justify-end gap-4">
-                    {tags?.map(tag => (
+                    {tags?.map((tag: string) => (
                       <p class="bg-slate-900 px-2 py-1 text-sm text-white">{tag}</p>
                     ))}
                   </div>

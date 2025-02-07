@@ -10,7 +10,7 @@ const { tags } = Astro.props
 <aside class="border-line w-full lg:w-1/4 lg:border-r lg:pr-8 xl:pr-12">
   <div class="flex flex-col">
     <div class="mb-3 text-slate-900">
-      <h2 class="font-header mb-4 text-2xl font-semibold">Index.</h2>
+      <h2 class="mb-4 text-2xl font-semibold">Index.</h2>
       <p class="text-sm">
         I jot down some things about my personal interests, random thoughts and sometimes technical
         learnings from day to day. I hope you find some things useful.
@@ -60,8 +60,8 @@ const { tags } = Astro.props
     </div>
     {
       Astro.url.pathname !== "/tags/" && Astro.url.pathname !== "/tags" && (
-        <div class="mb-12 md:mb-0 md:mt-12">
-          <h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
+        <div class="mb-12 md:mt-12 md:mb-0">
+          <h2 class="mb-4 text-2xl font-semibold">Tags.</h2>
           <ul class="flex flex-col gap-1">
             {tags.map((tag: string, index: number) => (
               <li class="flex items-center gap-5 text-sm text-slate-900">

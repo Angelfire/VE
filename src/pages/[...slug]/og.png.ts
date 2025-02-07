@@ -5,7 +5,7 @@ import path from 'node:path';
 
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-import { getFormattedDate } from "@/lib"
+import { getFormattedDate } from "@/lib/formatDate"
 
 interface Props {
   params: { slug: string };
@@ -145,7 +145,7 @@ export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
   
   return blogPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.data.slug },
     props: { post },
   }));
 }
