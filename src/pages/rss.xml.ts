@@ -6,7 +6,7 @@ import type { APIContext } from 'astro'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from "markdown-it"
 
-import { sortMDByDate } from "@/lib"
+import { sortMDByDate } from "@/lib/blogPosts"
 
 const parser = new MarkdownIt()
 
@@ -23,8 +23,8 @@ export const GET: APIRoute = async (context: APIContext) => {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      content: sanitizeHtml(parser.render(post.body)),
-      link: `/${post.slug}`,
+      content: sanitizeHtml(parser.render(post.body || "")),
+      link: `/${post.id}`,
     })),
   })
 }

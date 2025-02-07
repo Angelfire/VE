@@ -12,7 +12,8 @@ import BlogLayout from "@/layouts/BlogLayout.astro"
 import Aside from "@/components/Aside.astro"
 import Pagination from "@/components/Pagination.astro"
 
-import { getFormattedDate, getUniqueTags, sortMDByDate } from "@/lib"
+import { getUniqueTags, sortMDByDate } from "@/lib/blogPosts"
+import { getFormattedDate } from "@/lib/formatDate"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog")
@@ -33,10 +34,7 @@ const { page } = Astro.props
 const { tag } = Astro.params
 
 const posts = await getCollection("blog")
-const shortPosts = await getCollection("short")
-
-const allPosts = [...posts, ...shortPosts]
-const tags = getUniqueTags(allPosts)
+const tags = getUniqueTags(posts)
 ---
 
 <BlogLayout title={`Velocidad de Escape - Tag: ${tag}`} description={`Posts tagged with: ${tag}`}>
@@ -51,11 +49,13 @@ const tags = getUniqueTags(allPosts)
             Tag → {`#${tag}`}
           </h2>
           {
-            page.data.map(({ slug, data: { title, pubDate } }) => {
+            page.data.map(({ data: { slug, title, pubDate } }) => {
+              const dateTime = new Date(pubDate).toISOString()
+
               return (
                 <article>
                   <header class="flex gap-6 pb-1">
-                    <time class="font-text w-24 text-xs" datetime={pubDate.toDateString()}>
+                    <time class="font-text w-24 text-xs" datetime={dateTime}>
                       /{getFormattedDate({ date: pubDate })}
                     </time>
                     <h2 class="w-56 text-sm font-bold text-slate-900 md:w-full">

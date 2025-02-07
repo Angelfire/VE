@@ -1,7 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content"
-
-import { getCollection } from "astro:content"
+import { type CollectionEntry, getCollection, render } from "astro:content"
 
 import BlogPost from "@/layouts/BlogPost.astro"
 
@@ -11,7 +9,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog")
 
   return posts.flatMap(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.data.slug },
     props: post,
   }))
 }
@@ -19,15 +17,14 @@ export async function getStaticPaths() {
 const post = Astro.props
 
 const {
-  data: { title, description, pubDate },
-  slug,
+  data: { description, pubDate, slug, title },
   rendered,
 } = post
 
 // Validación para asegurar que headings es un array de objetos con la forma esperada
 const headings = Array.isArray(rendered?.metadata?.headings) ? rendered.metadata.headings : []
 
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 
 <BlogPost description={description} pubDate={pubDate} title={title} slug={slug} headings={headings}>
