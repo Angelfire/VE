@@ -61,8 +61,8 @@ const { page, uniqueTags } = Astro.props
                         {getFormattedDate({ date: pubDate })}
                       </time>
                     </div>
-                    <h2 class="font-header mb-4 text-xl font-bold text-slate-800">{title}</h2>
-                    <div class="prose prose-slate prose-sm prose-headings:font-header prose-headings:text-slate-900 prose-p:text-slate-700 prose-a:text-blue-600 hover:prose-a:underline prose-code:rounded-sm prose-code:px-1 prose-code:text-blue-600 mb-4 max-w-none">
+                    <h2 class="mb-4 text-xl font-bold text-slate-800">{title}</h2>
+                    <div class="prose prose-slate prose-sm prose-headings:text-slate-900 prose-p:text-slate-700 prose-a:text-blue-600 hover:prose-a:underline prose-code:rounded-sm prose-code:px-1 prose-code:text-blue-600 mb-4 max-w-none">
                       <Content />
                     </div>
                   </article>
@@ -75,7 +75,7 @@ const { page, uniqueTags } = Astro.props
                     <time class="font-text pb-1 text-xs" datetime={pubDate.toDateString()}>
                       /{getFormattedDate({ date: pubDate })}
                     </time>
-                    <h2 class="font-header text-3xl font-bold text-slate-900">
+                    <h2 class="text-3xl font-bold text-slate-900">
                       <a href={`/${slug}`}>{title}</a>
                     </h2>
                   </header>
