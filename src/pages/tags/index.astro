@@ -17,7 +17,7 @@ import Aside from "@/components/Aside.astro"
       <Aside tags={tags} />
       <div class="w-full lg:w-3/4 lg:pl-8 xl:pl-12">
         <section>
-          <h2 class="font-header mb-4 text-2xl font-semibold">Tags.</h2>
+          <h2 class="mb-4 text-2xl font-semibold">Tags.</h2>
           <ul class="flex flex-col gap-2">
             {
               Object.entries(tagsCount).map(([tag, val], index) => (
