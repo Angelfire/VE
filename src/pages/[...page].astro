@@ -48,8 +48,8 @@ const { page, uniqueTags } = Astro.props
 
               return (
                 <article class="mb-12">
-                  <header class="mb-4 flex items-end gap-6 border-b border-dashed border-slate-900 pb-1">
-                    <time class="font-text pb-1 text-xs" datetime={dateTime}>
+                  <header class="mb-4 flex flex-col gap-y-2 border-b border-dashed border-slate-900 pb-1 sm:flex-row sm:items-end sm:gap-x-6">
+                    <time class="font-text text-xs sm:pb-1" datetime={dateTime}>
                       /{getFormattedDate({ date: pubDate })}
                     </time>
                     <h2 class="text-3xl font-bold text-slate-900">
