@@ -1,11 +1,11 @@
 ---
 interface Props {
-  text: string
+  text?: string
   maxLength?: number
   addEllipsis?: boolean
 }
 
-const { text, maxLength = 210, addEllipsis = true } = Astro.props
+const { text = "", maxLength = 210, addEllipsis = true } = Astro.props
 
 const truncateText = (text: string, maxLength: number, addEllipsis: boolean): string => {
   if (maxLength <= 0) return text
