@@ -2,6 +2,7 @@
   "name": "velocidad-de-escape",
   "type": "module",
   "version": "3.0.0",
+  "packageManager": "pnpm@10.2.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
