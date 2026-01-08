@@ -3,6 +3,7 @@ title: "Building RunStack: A journey through vibe coding"
 slug: "ai/runstack-vibe-coding"
 description: "RunStack is a desktop application that allows you to manage and run Node.js, Deno, and Bun projects from a single place. This post documents the development journey, exploring the technologies used, the most complex technical challenges we faced, and the solutions we implemented to create a robust and efficient tool."
 pubDate: 2026-01-08
+tags: ["Personal", "AI"]
 ---
 
 This idea came about many months ago, I tried a couple of times but it definitely required a deep knowledge of Rust to be able to do some things, so I left it in oblivion until a couple of days ago when I wanted to try the famous vibe coding.
