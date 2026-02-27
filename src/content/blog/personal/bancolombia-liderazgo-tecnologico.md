@@ -53,7 +53,7 @@ En sectores menos críticos, quizás sí. En banca, donde cada decisión tecnol�
 
 Otro punto que llama la atención es cómo se comunica la responsabilidad cuando ocurren incidentes tecnológicos.
 
-En eventos pasados pareciera ser culpa de AWS, en recientes, la narrativa en entrevistas ha señalado a partners como IBM o Kyndryl.
+En eventos pasados pareció ser culpa de AWS, en recientes, la narrativa en entrevistas ha señalado a partners como IBM o Kyndryl.
 
 Sin duda, los proveedores tienen responsabilidades contractuales y operativas. Pero la arquitectura, la estrategia de contingencia y los niveles de resiliencia son decisiones internas.
 
