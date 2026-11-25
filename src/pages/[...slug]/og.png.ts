@@ -1,61 +1,57 @@
-import { ImageResponse } from '@vercel/og';
+import { ImageResponse } from "@vercel/og"
 
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from "node:fs"
+import path from "node:path"
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from "astro:content"
 
 import { getFormattedDate } from "@/lib/formatDate"
 
 interface Props {
-  params: { slug: string };
-  props: { post: CollectionEntry<'blog'> };
+  params: { slug: string }
+  props: { post: CollectionEntry<"blog"> }
 }
- 
+
 export async function GET({ props }: Props) {
-  const { post } = props;
+  const { post } = props
 
-  const title = post.data.title ?? '';
-  const pubDate = post.data.pubDate ?? '';
+  const title = post.data.title ?? ""
+  const pubDate = post.data.pubDate ?? ""
 
-  const InterBold = fs.readFileSync(
-    path.resolve('./public/fonts/Inter-Bold.ttf'),
-  );
-  const InterRegular = fs.readFileSync(
-    path.resolve('./public/fonts/Inter-Regular.ttf'),
-  );
+  const InterBold = fs.readFileSync(path.resolve("./public/fonts/Inter-Bold.ttf"))
+  const InterRegular = fs.readFileSync(path.resolve("./public/fonts/Inter-Regular.ttf"))
 
   const html = {
-    type: 'div',
+    type: "div",
     props: {
       children: [
         {
-          type: 'div',
+          type: "div",
           props: {
-            tw: 'flex flex-col gap-2',
+            tw: "flex flex-col gap-2",
             children: [
               {
-                type: 'div',
+                type: "div",
                 props: {
-                  tw: 'text-blue-500',
+                  tw: "text-blue-500",
                   style: {
-                    fontSize: '75px',
-                    fontFamily: 'Inter',
+                    fontSize: "75px",
+                    fontFamily: "Inter",
                     fontWeight: 700,
-                    lineHeight: '1',
-                    marginBottom: '0.2em',
+                    lineHeight: "1",
+                    marginBottom: "0.2em",
                   },
                   children: title,
                 },
               },
               {
-                type: 'div',
+                type: "div",
                 props: {
-                  tw: 'text-black',
+                  tw: "text-black",
                   style: {
-                    fontSize: '25px',
-                    fontFamily: 'Inter',
-                    lineHeight: '1.4',
+                    fontSize: "25px",
+                    fontFamily: "Inter",
+                    lineHeight: "1.4",
                     fontWeight: 400,
                   },
                   children: getFormattedDate({ date: pubDate }),
@@ -65,87 +61,87 @@ export async function GET({ props }: Props) {
           },
         },
         {
-          type: 'div',
+          type: "div",
           props: {
-            tw: 'absolute right-[30px] bottom-[30px] flex gap-x-0.5 items-center text-3xl',
+            tw: "absolute right-[30px] bottom-[30px] flex gap-x-0.5 items-center text-3xl",
             children: [
               {
-                type: 'div',
+                type: "div",
                 props: {
-                  tw: 'text-black',
+                  tw: "text-black",
                   style: {
-                    fontFamily: 'Inter',
+                    fontFamily: "Inter",
                     fontWeight: 400,
                   },
-                  children: 'Andrés B.',
+                  children: "Andrés B.",
                 },
               },
               {
-                type: 'div',
+                type: "div",
                 props: {
-                  tw: 'text-blue-500',
+                  tw: "text-blue-500",
                   style: {
-                    fontFamily: 'Inter',
+                    fontFamily: "Inter",
                     fontWeight: 400,
-                    marginLeft: '0.5em',
-                    marginRight: '0.5em',
+                    marginLeft: "0.5em",
+                    marginRight: "0.5em",
                   },
-                  children: '•',
+                  children: "•",
                 },
               },
               {
-                type: 'div',
+                type: "div",
                 props: {
-                  tw: '',
+                  tw: "",
                   style: {
-                    backgroundImage: 'linear-gradient(90deg, #db2777, #2563eb)',
-                    backgroundClip: 'text',
-                    color: 'transparent',
-                    fontFamily: 'Inter',
+                    backgroundImage: "linear-gradient(90deg, #db2777, #2563eb)",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    fontFamily: "Inter",
                     fontWeight: 400,
                   },
-                  children: 'velocidadescape.com',
+                  children: "velocidadescape.com",
                 },
               },
             ],
           },
-        }
+        },
       ],
-      tw: 'w-full h-full flex flex-col relative p-15 bg-white',
+      tw: "w-full h-full flex flex-col relative p-15 bg-white",
       style: {
-        fontFamily: 'Inter',
-        color: 'rgba(255, 255, 255, 0.75)',
-        backgroundImage: 'linear-gradient(to bottom, #dbf4ff, #fff1f1)',
+        fontFamily: "Inter",
+        color: "rgba(255, 255, 255, 0.75)",
+        backgroundImage: "linear-gradient(to bottom, #dbf4ff, #fff1f1)",
       },
     },
-  };
+  }
 
   return new ImageResponse(html, {
     width: 1200,
     height: 630,
     fonts: [
       {
-        name: 'Inter',
+        name: "Inter",
         data: InterRegular,
-        style: 'normal',
+        style: "normal",
         weight: 700,
       },
       {
-        name: 'Inter',
+        name: "Inter",
         data: InterBold,
-        style: 'normal',
+        style: "normal",
         weight: 400,
       },
     ],
-  });
+  })
 }
- 
+
 // to generate an image for each blog posts in a collection
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog');
-  
-  return blogPosts.map((post) => ({
+  const blogPosts = await getCollection("blog")
+
+  return blogPosts.map(post => ({
     params: { slug: post.data.slug },
     props: { post },
-  }));
+  }))
 }

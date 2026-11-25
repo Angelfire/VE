@@ -19,44 +19,38 @@ const nextPage = currentPage + 1
 
 <nav aria-label="page navigation">
   <ul class="flex justify-between md:justify-start md:gap-4">
-    {
-      !isFirst && (
-        <li>
-          <a class="bg-slate-900 p-3 text-white" href={`${url}${prevPage}`} rel="prev">
-            ← Previous Page
-          </a>
-        </li>
-      )
-    }
-    {
-      numPosts > limit &&
-        Array.from({ length: numPages }, (_, i) => {
-          const pageNumber = i + 1
-          return (
-            <li class="hidden md:block">
-              <a
-                class={`bg-slate-900 p-3 text-white ${
-                  (pageNumber === currentPage && currentPage !== 1) ||
-                  (currentPage === 1 && pageNumber === 1)
-                    ? "opacity-50"
-                    : "opacity-100"
-                }`}
-                href={`${url}${pageNumber === 1 ? "" : pageNumber}`}
-              >
-                {pageNumber}
-              </a>
-            </li>
-          )
-        })
-    }
-    {
-      !isLast && (
-        <li>
-          <a class="bg-slate-900 p-3 text-white" href={`${url}${nextPage}`} rel="next">
-            Next Page →
-          </a>
-        </li>
-      )
-    }
+    {!isFirst && (
+      <li>
+        <a class="bg-slate-900 p-3 text-white" href={`${url}${prevPage}`} rel="prev">
+          ← Previous Page
+        </a>
+      </li>
+    )}
+    {numPosts > limit &&
+      Array.from({ length: numPages }, (_, i) => {
+        const pageNumber = i + 1
+        return (
+          <li class="hidden md:block">
+            <a
+              class={`bg-slate-900 p-3 text-white ${
+                (pageNumber === currentPage && currentPage !== 1) ||
+                (currentPage === 1 && pageNumber === 1)
+                  ? "opacity-50"
+                  : "opacity-100"
+              }`}
+              href={`${url}${pageNumber === 1 ? "" : pageNumber}`}
+            >
+              {pageNumber}
+            </a>
+          </li>
+        )
+      })}
+    {!isLast && (
+      <li>
+        <a class="bg-slate-900 p-3 text-white" href={`${url}${nextPage}`} rel="next">
+          Next Page →
+        </a>
+      </li>
+    )}
   </ul>
 </nav>

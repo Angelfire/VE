@@ -1,9 +1,10 @@
-import { glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { glob } from "astro/loaders"
+import { defineCollection } from "astro:content"
+import { z } from "astro/zod"
 
 const blog = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
-  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -12,10 +13,8 @@ const blog = defineCollection({
     pubDate: z
       .string()
       .or(z.date())
-      .transform((val) => new Date(val)),
-    tags: z
-      .array(z.string())
-      .optional()
+      .transform(val => new Date(val)),
+    tags: z.array(z.string()).optional(),
   }),
 })
 
