@@ -9,6 +9,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://velocidadescape.com/",
   integrations: [mdx(), sitemap()],
+  // Astro 7 defaults to "jsx", which drops whitespace between inline elements.
+  // Keep the v6 behavior so rendered text stays the same.
+  compressHTML: true,
 
   markdown: {
     shikiConfig: {
