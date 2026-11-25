@@ -1,7 +1,7 @@
 type GetFormattedDateProps = {
   date: string | number | Date
-  options?: Intl.DateTimeFormatOptions | {}
-  locale?: Intl.LocalesArgument | string
+  options?: Intl.DateTimeFormatOptions
+  locale?: Intl.LocalesArgument
 }
 
 export function getFormattedDate({ date, options = {}, locale = "en-US" }: GetFormattedDateProps) {

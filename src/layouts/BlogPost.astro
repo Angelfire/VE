@@ -76,34 +76,33 @@ const showHeadings = (headings?.length ?? 0) > 0
   </div>
 </BlogLayout>
 <script>
+  let observer: IntersectionObserver | undefined
+
   function setupScrollButton() {
-    const scrollBtn = document.getElementById("topHeader") as HTMLButtonElement
-    const targetHeader = document.getElementById("header") as HTMLDivElement
+    // Drop the observer from the previous page before wiring up the new one.
+    observer?.disconnect()
+    observer = undefined
+
+    const scrollBtn = document.getElementById("topHeader")
+    const targetHeader = document.getElementById("header")
 
     if (!scrollBtn || !targetHeader) {
       return
     }
 
-    const observer = new IntersectionObserver(callback)
-    observer.observe(targetHeader)
-
-    function callback(entries: IntersectionObserverEntry[]) {
+    observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         // Solo mostrar el botón cuando el encabezado esté fuera de vista
         scrollBtn.dataset.show = (!entry.isIntersecting).toString()
       })
-    }
+    })
+    observer.observe(targetHeader)
 
     scrollBtn.addEventListener("click", () => {
       document.documentElement.scrollTo({ top: 0, behavior: "smooth" })
     })
   }
 
-  function loadScripts() {
-    setupScrollButton()
-  }
-
-  // Asegúrate de llamar a la función después de que el DOM esté completamente cargado
-  document.addEventListener("DOMContentLoaded", loadScripts)
-  document.addEventListener("astro:after-swap", loadScripts)
+  // Runs on the first load and after every <ClientRouter /> navigation.
+  document.addEventListener("astro:page-load", setupScrollButton)
 </script>

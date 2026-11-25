@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content"
 
 export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
-  return posts.sort(
+  return [...posts].sort(
     (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
 }
@@ -10,7 +10,7 @@ export function getUniqueTags(posts: CollectionEntry<"blog">[] = []) {
   const uniqueTags = new Set<string>()
 
   posts.forEach(post => {
-    post.data?.tags?.map((tag: string) => uniqueTags.add(tag))
+    post.data?.tags?.forEach(tag => uniqueTags.add(tag))
   })
 
   return Array.from(uniqueTags)
