@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content"
 
-import { getUniqueTags, getUniqueTagsWithCount } from "@/lib/blogPosts"
+import { getUniqueTags, getUniqueTagsWithCount, sortMDByDate } from "@/lib/blogPosts"
 
-const posts = await getCollection("blog")
+const posts = sortMDByDate(await getCollection("blog"))
 const tagsCount = getUniqueTagsWithCount(posts)
 const tags = getUniqueTags(posts)
 
@@ -21,7 +21,7 @@ import Aside from "@/components/Aside.astro"
           <ul class="flex flex-col gap-2">
             {Object.entries(tagsCount).map(([tag, val], index) => (
               <li class="flex gap-5 text-sm text-slate-900">
-                <span>{`/0${index}`}</span>
+                <span>{`/${String(index).padStart(2, "0")}`}</span>
                 <div>
                   <a
                     class="underline hover:no-underline"

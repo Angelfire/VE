@@ -21,7 +21,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const blog = await getCollection("blog")
 
   const sortedPosts = sortMDByDate(blog)
-  const uniqueTags = getUniqueTags(blog)
+  const uniqueTags = getUniqueTags(sortedPosts)
 
   return paginate(sortedPosts, { props: { uniqueTags }, pageSize: 4 })
 }
@@ -38,7 +38,7 @@ const { page, uniqueTags } = Astro.props
       <Aside tags={uniqueTags} />
       <div class="w-full lg:w-3/4 lg:pl-8 xl:pl-12">
         <section>
-          {page.data.map(async post => {
+          {page.data.map(post => {
             const {
               body,
               data: { slug, title, pubDate, tags },

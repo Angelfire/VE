@@ -1,4 +1,5 @@
-import { ImageResponse } from "@vercel/og"
+import satori from "satori"
+import sharp from "sharp"
 
 import fs from "node:fs"
 import path from "node:path"
@@ -6,6 +7,10 @@ import path from "node:path"
 import { getCollection, type CollectionEntry } from "astro:content"
 
 import { getFormattedDate } from "@/lib/formatDate"
+
+// Read the fonts once per build instead of once per generated image.
+const InterBold = fs.readFileSync(path.resolve("./public/fonts/Inter-Bold.ttf"))
+const InterRegular = fs.readFileSync(path.resolve("./public/fonts/Inter-Regular.ttf"))
 
 interface Props {
   params: { slug: string }
@@ -17,9 +22,6 @@ export async function GET({ props }: Props) {
 
   const title = post.data.title ?? ""
   const pubDate = post.data.pubDate ?? ""
-
-  const InterBold = fs.readFileSync(path.resolve("./public/fonts/Inter-Bold.ttf"))
-  const InterRegular = fs.readFileSync(path.resolve("./public/fonts/Inter-Regular.ttf"))
 
   const html = {
     type: "div",
@@ -116,7 +118,7 @@ export async function GET({ props }: Props) {
     },
   }
 
-  return new ImageResponse(html, {
+  const svg = await satori(html, {
     width: 1200,
     height: 630,
     fonts: [
@@ -133,6 +135,12 @@ export async function GET({ props }: Props) {
         weight: 400,
       },
     ],
+  })
+
+  const png = await sharp(Buffer.from(svg)).png().toBuffer()
+
+  return new Response(new Uint8Array(png), {
+    headers: { "Content-Type": "image/png" },
   })
 }
 

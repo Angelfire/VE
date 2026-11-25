@@ -1,4 +1,6 @@
 ---
+import { markdownToPlainText } from "@/lib/plainText"
+
 interface Props {
   text?: string
   maxLength?: number
@@ -14,7 +16,7 @@ const truncateText = (text: string, maxLength: number, addEllipsis: boolean): st
 
   let excerpt = text.substring(0, maxLength)
 
-  let lastSpaceIndex = excerpt.lastIndexOf(" ")
+  const lastSpaceIndex = excerpt.lastIndexOf(" ")
 
   if (lastSpaceIndex !== -1) {
     excerpt = excerpt.substring(0, lastSpaceIndex)
@@ -27,7 +29,7 @@ const truncateText = (text: string, maxLength: number, addEllipsis: boolean): st
   return excerpt
 }
 
-const postExcerpt = truncateText(text, maxLength, addEllipsis)
+const postExcerpt = truncateText(markdownToPlainText(text), maxLength, addEllipsis)
 ---
 
 {postExcerpt}

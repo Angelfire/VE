@@ -1,5 +1,18 @@
+---
+import { Image } from "astro:assets"
+
+import profile from "@/assets/profile.png"
+---
+
 <div class="my-9 flex gap-3 border-t border-slate-300 pt-5">
-  <img src="/images/profile.png" alt="Andres Bedoya" class="h-24 w-24" />
+  <Image
+    src={profile}
+    alt="Andres Bedoya"
+    width={96}
+    height={96}
+    densities={[1, 2]}
+    class="h-24 w-24"
+  />
   <div>
     <p>
       About <strong>Andrés Bedoya</strong>
