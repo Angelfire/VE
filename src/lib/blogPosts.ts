@@ -4,12 +4,12 @@ export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
   return posts.sort(
     (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
- }
+}
 
 export function getUniqueTags(posts: CollectionEntry<"blog">[] = []) {
   const uniqueTags = new Set<string>()
 
-  posts.forEach((post) => {
+  posts.forEach(post => {
     post.data?.tags?.map((tag: string) => uniqueTags.add(tag))
   })
 

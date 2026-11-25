@@ -4,11 +4,7 @@ type GetFormattedDateProps = {
   locale?: Intl.LocalesArgument | string
 }
 
-export function getFormattedDate({
-  date,
-  options = {},
-  locale = "en-US"
-}: GetFormattedDateProps) {
+export function getFormattedDate({ date, options = {}, locale = "en-US" }: GetFormattedDateProps) {
   const formatOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
     month: "short",

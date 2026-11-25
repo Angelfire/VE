@@ -1,9 +1,9 @@
 import rss from "@astrojs/rss"
 import { getCollection } from "astro:content"
-import type { APIRoute } from 'astro'
-import type { APIContext } from 'astro'
+import type { APIRoute } from "astro"
+import type { APIContext } from "astro"
 
-import sanitizeHtml from 'sanitize-html'
+import sanitizeHtml from "sanitize-html"
 import MarkdownIt from "markdown-it"
 
 import { sortMDByDate } from "@/lib/blogPosts"
